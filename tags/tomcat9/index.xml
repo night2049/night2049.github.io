@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tomcat9 on NoesBlog</title>
+    <link>/tags/tomcat9/</link>
+    <description>Recent content in Tomcat9 on NoesBlog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 02 Feb 2018 02:29:54 +0000</lastBuildDate><atom:link href="/tags/tomcat9/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CentOS7 install Tomcat9</title>
+      <link>/2018/02/2018-02-02-centos7-install-tomcat9/</link>
+      <pubDate>Fri, 02 Feb 2018 02:29:54 +0000</pubDate>
+      
+      <guid>/2018/02/2018-02-02-centos7-install-tomcat9/</guid>
+      <description>教程适用于CentOS7，使用编译安装方式，在使用本教程时请注意你的安装路径是否一致！
+教程测试于：
+ CentOS7.4 64位
+jdk-8u152
+ Tomcat install    跳转到软件目录
+cd /opt 下载tomcat 编译包
+wget http://mirrors.hust.edu.cn/apache/tomcat/tomcat-9/v9.0.2/bin/apache-tomcat-9.0.2.tar.gz 解压编译包
+tar zxvf apache-tomcat-9.0.2.tar.gz 安装完毕
+打开防火墙端口
+firewall-cmd --zone=public --add-port=8080/tcp --permanent firewall-cmd --reload 访问http://服务器ip:8080 即可查看tomcat欢迎页
+设置tomcat开机自启动
+vi /etc/systemd/system/tomcat.service 在文件内追加如下内容并保存
+Description=Apache Tomcat Web Application Container After=network.target remote-fs.target nss-lookup.target [Service] Type=forking Environment=JAVA_HOME=/opt/jdk1.8.0_152 Environment=CATALINA_HOME=/opt/apache-tomcat-9.0.2 Environment=CATALINA_BASE=/opt/apache-tomcat-9.0.2 ExecStart=/opt/apache-tomcat-9.0.2/bin/startup.sh start ExecStop=/opt/apache-tomcat-9.0.2/bin/shutdown.sh stop [Install] WantedBy=multi-user.target 重载文件
+systemctl daemon-reload 设置tomcat开机启动
+systemctl enable tomcat 启动tomcat
+systemctl start tomcat 常用命令汇总     查看运行状态</description>
+    </item>
+    
+  </channel>
+</rss>

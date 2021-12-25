@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CentOS on NoesBlog</title>
+    <link>/tags/centos/</link>
+    <description>Recent content in CentOS on NoesBlog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 02 Feb 2018 02:21:11 +0000</lastBuildDate><atom:link href="/tags/centos/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CentOS7.4 安装配置流程</title>
+      <link>/2018/02/2018-02-02-centos7-4-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E6%B5%81%E7%A8%8B/</link>
+      <pubDate>Fri, 02 Feb 2018 02:21:11 +0000</pubDate>
+      
+      <guid>/2018/02/2018-02-02-centos7-4-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E6%B5%81%E7%A8%8B/</guid>
+      <description>教程理论上适用于任何CentOS7.*系统
+tips：步骤2适用于国内用户
+1.CentOS安装初始化    安装工具查看ip
+yum install net-tools -y 查看ip并使用xshell等工具连接Centos
+ifconfig -a vi /etc/ssh/sshd_config 修改以下内容，将前面的#号去掉即可(按i进入编辑模式，按esc然后输入:wq保存并退出)
+ Port 22
+ListenAddress 0.0.0.0
+ListenAddress ::
+ermitEmptyPasswords no
+PasswordAuthentication yes
+ 重启ssh服务
+systemctl restart sshd.service 设置ssh开机启动
+systemctl enable sshd.service ssh端口放开防火墙
+firewall-cmd --permanent --zone=public --add-port=22/tcp 重载防火墙配置
+firewall-cmd --reload 安装wget
+yum install wget -y 2.国内源配置(国外用户可忽略此步骤)    mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo 缓存源
+yum makecache 国内源配置完毕</description>
+    </item>
+    
+    <item>
+      <title>centos7配置开启网络</title>
+      <link>/2018/01/2018-01-25-centos7%E9%85%8D%E7%BD%AE%E5%BC%80%E5%90%AF%E7%BD%91%E7%BB%9C/</link>
+      <pubDate>Wed, 24 Jan 2018 17:31:46 +0000</pubDate>
+      
+      <guid>/2018/01/2018-01-25-centos7%E9%85%8D%E7%BD%AE%E5%BC%80%E5%90%AF%E7%BD%91%E7%BB%9C/</guid>
+      <description>cd /etc/sysconfig/network-scripts/
+ 使用
+ ls
+ 会显示该目录下的所有文件，找到以ifcfg开头的第一个文件
+ vi ifcfg-XXX
+ 上方命令的xxx对应每个人的机器不一样，自己找一下对应格式的文件即可
+执行上方命令后，会打开编辑器，移动光标到最后一行,按i进入编辑模式
+ ONBOOT=NO
+ 修改为
+ ONBOOT=yes
+ 按esc键后输入
+ :wq
+ 保存该文件后执行以下命令
+ service network restart
+ 即可正常使用网络</description>
+    </item>
+    
+  </channel>
+</rss>

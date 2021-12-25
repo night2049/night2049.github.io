@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>MariaDB on NoesBlog</title>
+    <link>/tags/mariadb/</link>
+    <description>Recent content in MariaDB on NoesBlog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 02 Feb 2018 02:36:55 +0000</lastBuildDate><atom:link href="/tags/mariadb/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CentOS7 install MariaDB</title>
+      <link>/2018/02/2018-02-02-centos7-install-mariadb/</link>
+      <pubDate>Fri, 02 Feb 2018 02:36:55 +0000</pubDate>
+      
+      <guid>/2018/02/2018-02-02-centos7-install-mariadb/</guid>
+      <description>安装    yum -y install mariadb mariadb-server 启动MariaDB
+systemctl start mariadb 设置开机启动
+systemctl enable mariadb MariaDB快速配置
+mysql_secure_installation  设置密码，此处回车即可
+Enter current password for root (enter for none):
+是否设置root用户密码，输入y并回车或直接回车
+Set root password? [Y/n]
+其他配置匿名用户
+Remove anonymous users? [Y/n]
+root远程登录
+Disallow root login remotely? [Y/n]
+是否删除test数据库
+Remove test database and access to it? [Y/n]
+是否重新加载权限表
+Reload privilege tables now? [Y/n]
+ 登录MariaDB
+mysql -u root -p password 配置MariaDB的字符集
+vi /etc/my.cnf</description>
+    </item>
+    
+  </channel>
+</rss>

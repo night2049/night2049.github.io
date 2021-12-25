@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>数据结构 on NoesBlog</title>
+    <link>/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link>
+    <description>Recent content in 数据结构 on NoesBlog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 15 May 2018 11:19:38 +0000</lastBuildDate><atom:link href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>数据结构笔记</title>
+      <link>/2018/05/2018-05-15/</link>
+      <pubDate>Tue, 15 May 2018 11:19:38 +0000</pubDate>
+      
+      <guid>/2018/05/2018-05-15/</guid>
+      <description>线性表    线性表是一种对于零个或多个相同类型的数据元素的有限序列。
+线性表分为以下几种结构：
+ 顺序结构-数组 链式结构-单链表 / 静态链表 / 循环链表 / 双向链表  顺序存储结构    通常的实现为数组，其特点通常是内存空间固定，数据在内存中连续存储
+链式存储结构    通常实现为单链表，在Java中可视为LinkedList，其数据在内存中通常不连续，且每条数据均带有下个数据在内存中的地址（具有一个头指针，头指针地址通常不为空，是链表的必要元素）
+栈与队列    栈：即先进后出，后进先出，是限定仅在表尾进行插入和删除的线性表
+栈的插入操作，称为进栈，栈的删除操作，叫做出栈。
+队列：队列是一种先进先出的线性表，允许插入的称为队尾，允许删除的称为队头。队列是只允许在一段进行插入操作，在另一端进行删除操作的线性表
+串    串：串是由零个或多个字符组成的有限序列，也可以叫做字符串。
+树    树(Tree)是n个结点的有限集合，n为0时为空数。
+ 在任何非空树中，有且仅有一个根结点
+2.当n&amp;gt;1时，其他结点可分为m个互不相交的有限集合，其中任意集合均可视为树，并称为树的子树  </description>
+    </item>
+    
+  </channel>
+</rss>

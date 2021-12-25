@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Language" content="en">
+    <meta name="color-scheme" content="light dark">
+
+    
+      <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests; block-all-mixed-content; default-src 'self'; child-src 'self'; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net/; form-action 'self'; frame-src 'self'; img-src 'self'; object-src 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/ https://cdn.jsdelivr.net/; script-src 'self' 'unsafe-inline' https://www.google-analytics.com; prefetch-src 'self'; connect-src 'self' https://www.google-analytics.com;">
+
+    
+
+    <meta name="author" content="Night">
+    <meta name="description" content="处理其他DB    首先执行以下命令处理yum上的其他分发类型的数据库。
+yum list installed mariadb\* yum list installed Percona\* 执行以上命令若有显示，请执行以下命令。
+yum-config-manager --disable mariadb yum-config-manager --disable percona-release 卸载其他分发数据库    yum remove MariaDB-common MariaDB-compat MariaDB-server yum remove Percona-Server-client-55 Percona-Server-server-55 \ Percona-Server-shared-55.i686 percona-release 安装mysql的yum源    访问以下链接获取到red hat的rpm文件地址，并使用wget命令下载到服务器上。
+https://dev.mysql.com/downloads/repo/yum/
+也可以直接下载后使用ftp上传到服务器上。
+安装yum源
+yum localinstall mysql*****.noarch.rpm 检查mysql源
+yum repolist enabled | grep &#34;mysql.*-community.*&#34; 安装mysql
+yum install mysql-community-server 启动mysql
+systemctl start mysqld 查看启动状态
+systemctl status mysqld 设置开机启动
+systemctl enable mysqld systemctl daemon-reload 查看生成的mysql root密码">
+    <meta name="keywords" content="blog,developer,personal">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="CentOS7 install MySQL5.7"/>
+<meta name="twitter:description" content="处理其他DB    首先执行以下命令处理yum上的其他分发类型的数据库。
+yum list installed mariadb\* yum list installed Percona\* 执行以上命令若有显示，请执行以下命令。
+yum-config-manager --disable mariadb yum-config-manager --disable percona-release 卸载其他分发数据库    yum remove MariaDB-common MariaDB-compat MariaDB-server yum remove Percona-Server-client-55 Percona-Server-server-55 \ Percona-Server-shared-55.i686 percona-release 安装mysql的yum源    访问以下链接获取到red hat的rpm文件地址，并使用wget命令下载到服务器上。
+https://dev.mysql.com/downloads/repo/yum/
+也可以直接下载后使用ftp上传到服务器上。
+安装yum源
+yum localinstall mysql*****.noarch.rpm 检查mysql源
+yum repolist enabled | grep &#34;mysql.*-community.*&#34; 安装mysql
+yum install mysql-community-server 启动mysql
+systemctl start mysqld 查看启动状态
+systemctl status mysqld 设置开机启动
+systemctl enable mysqld systemctl daemon-reload 查看生成的mysql root密码"/>
+
+    <meta property="og:title" content="CentOS7 install MySQL5.7" />
+<meta property="og:description" content="处理其他DB    首先执行以下命令处理yum上的其他分发类型的数据库。
+yum list installed mariadb\* yum list installed Percona\* 执行以上命令若有显示，请执行以下命令。
+yum-config-manager --disable mariadb yum-config-manager --disable percona-release 卸载其他分发数据库    yum remove MariaDB-common MariaDB-compat MariaDB-server yum remove Percona-Server-client-55 Percona-Server-server-55 \ Percona-Server-shared-55.i686 percona-release 安装mysql的yum源    访问以下链接获取到red hat的rpm文件地址，并使用wget命令下载到服务器上。
+https://dev.mysql.com/downloads/repo/yum/
+也可以直接下载后使用ftp上传到服务器上。
+安装yum源
+yum localinstall mysql*****.noarch.rpm 检查mysql源
+yum repolist enabled | grep &#34;mysql.*-community.*&#34; 安装mysql
+yum install mysql-community-server 启动mysql
+systemctl start mysqld 查看启动状态
+systemctl status mysqld 设置开机启动
+systemctl enable mysqld systemctl daemon-reload 查看生成的mysql root密码" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/2018/02/2018-02-02-centos7-install-mysql5-7/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2018-02-02T02:42:47+00:00" />
+<meta property="article:modified_time" content="2018-02-02T02:42:47+00:00" />
+
+
+
+    <title>
+  CentOS7 install MySQL5.7 · NoesBlog
+</title>
+
+    
+      <link rel="canonical" href="/2018/02/2018-02-02-centos7-install-mysql5-7/">
+    
+
+    <link rel="preload" href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
+
+    
+      
+      
+      <link rel="stylesheet" href="/css/coder.min.d9fddbffe6f27e69985dc5fe0471cdb0e57fbf4775714bc3d847accb08f4a1f6.css" integrity="sha256-2f3b/&#43;byfmmYXcX&#43;BHHNsOV/v0d1cUvD2Eesywj0ofY=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+      
+        
+        
+        <link rel="stylesheet" href="/css/coder-dark.min.002ee2378e14c7a68f1f0a53d9694ed252090987c4e768023fac694a4fc5f793.css" integrity="sha256-AC7iN44Ux6aPHwpT2WlO0lIJCYfE52gCP6xpSk/F95M=" crossorigin="anonymous" media="screen" />
+      
+    
+
+    
+
+    
+
+    <link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+    <meta name="generator" content="Hugo 0.91.2" />
+  </head>
+
+  
+  
+    
+  
+  <body class="preload-transitions colorscheme-auto">
+    
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="/">
+      NoesBlog
+    </a>
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/posts/">博客</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/tags/">标签</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/about/">关于</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="/2018/02/2018-02-02-centos7-install-mysql5-7/">
+              CentOS7 install MySQL5.7
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+              <time datetime='2018-02-02T02:42:47Z'>
+                2018/02/02 02:42
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              One-minute read
+            </span>
+          </div>
+          <div class="authors">
+    <i class="fa fa-user" aria-hidden="true"></i>
+      <a href="/authors/night/">Night</a></div>
+          
+          <div class="tags">
+  <i class="fa fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/centos7/">CentOS7</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/tags/mysql5.7/">MySQL5.7</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div>
+        
+        <h1 id="处理其他db">
+  处理其他DB
+  <a class="heading-link" href="#%e5%a4%84%e7%90%86%e5%85%b6%e4%bb%96db">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h1>
+<p>首先执行以下命令处理yum上的其他分发类型的数据库。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">yum list installed mariadb\*
+</code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">yum list installed Percona\*
+</code></pre></div><p>执行以上命令若有显示，请执行以下命令。</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">yum-config-manager --disable mariadb
+</code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">yum-config-manager --disable percona-release
+</code></pre></div><h1 id="卸载其他分发数据库">
+  卸载其他分发数据库
+  <a class="heading-link" href="#%e5%8d%b8%e8%bd%bd%e5%85%b6%e4%bb%96%e5%88%86%e5%8f%91%e6%95%b0%e6%8d%ae%e5%ba%93">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h1>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">yum remove MariaDB-common MariaDB-compat MariaDB-server
+</code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">yum remove Percona-Server-client-55 Percona-Server-server-55 \
+  Percona-Server-shared-55.i686 percona-release
+</code></pre></div><h1 id="安装mysql的yum源">
+  安装mysql的yum源
+  <a class="heading-link" href="#%e5%ae%89%e8%a3%85mysql%e7%9a%84yum%e6%ba%90">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h1>
+<p>访问以下链接获取到red hat的rpm文件地址，并使用wget命令下载到服务器上。</p>
+<p><a href="https://dev.mysql.com/downloads/repo/yum/">https://dev.mysql.com/downloads/repo/yum/</a><br>
+也可以直接下载后使用ftp上传到服务器上。</p>
+<p>安装yum源</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">yum localinstall mysql*****.noarch.rpm
+</code></pre></div><p>检查mysql源</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">yum repolist enabled | grep &#34;mysql.*-community.*&#34;
+</code></pre></div><p>安装mysql</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">yum install mysql-community-server
+</code></pre></div><p>启动mysql</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">systemctl start mysqld
+</code></pre></div><p>查看启动状态</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">systemctl status mysqld
+</code></pre></div><p>设置开机启动</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">systemctl enable mysqld
+</code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">systemctl daemon-reload
+</code></pre></div><p>查看生成的mysql root密码</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">grep &#39;temporary password&#39; /var/log/mysqld.log
+</code></pre></div><p>在root@localhost:后面的就是mysql密码，复制下来即可。</p>
+<h1 id="登陆mysql">
+  登陆mysql
+  <a class="heading-link" href="#%e7%99%bb%e9%99%86mysql">
+    <i class="fa fa-link" aria-hidden="true"></i>
+  </a>
+</h1>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">mysql -u root -p
+</code></pre></div><p>粘贴密码。</p>
+<p>设置root用户密码(请设置符合mysql57要求的高强度密码)</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">set password for root@localhost = password(&#39;your password！！&#39;);
+</code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">use mysql;
+</code></pre></div><p>设置root用户可远程连接</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">update user set host = &#39;%&#39; where user =&#39;root&#39;;
+</code></pre></div><p>刷新用户权限</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">flush privileges;
+</code></pre></div><p>在mysql中执行以下命令设置数据库编码（直接复制所有命令然后回车确认一次即可）</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">set character_set_client = utf8;
+set character_set_server = utf8;
+set character_set_connection = utf8;
+set character_set_database = utf8;
+set character_set_results = utf8;
+set collation_connection = utf8_general_ci;
+set collation_database = utf8_general_ci;
+set collation_server = utf8_general_ci;
+</code></pre></div><p>查看mysql编码</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">show variables like &#39;character%&#39;;
+</code></pre></div><p>显示如下内容代表成功</p>
+<blockquote>
+<p>+-&ndash;-&ndash;-&ndash;-&ndash;-&ndash;-&ndash;-&ndash;-&mdash;-+-&ndash;-&ndash;-&ndash;-&ndash;-&ndash;-&ndash;-&ndash;-&ndash;-&mdash;+<br>
+| Variable_name | Value |<br>
++-&ndash;-&ndash;-&ndash;-&ndash;-&ndash;-&ndash;-&ndash;-&mdash;-+-&ndash;-&ndash;-&ndash;-&ndash;-&ndash;-&ndash;-&ndash;-&ndash;-&mdash;+<br>
+| character_set_client | utf8 |<br>
+| character_set_connection | utf8 |<br>
+| character_set_database | utf8 |<br>
+| character_set_filesystem | binary |<br>
+| character_set_results | utf8 |<br>
+| character_set_server | utf8 |<br>
+| character_set_system | utf8 |<br>
+| character_sets_dir | /usr/share/mysql/charsets/ |<br>
++-&ndash;-&ndash;-&ndash;-&ndash;-&ndash;-&ndash;-&ndash;-&mdash;-+-&ndash;-&ndash;-&ndash;-&ndash;-&ndash;-&ndash;-&ndash;-&ndash;-&mdash;+<br>
+8 rows in set (0.01 sec)<br>
+保存后重启MySQL服务</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">service mysql restart
+</code></pre></div><p>添加防火墙端口</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">firewall-cmd --permanent --zone=public --add-port=3306/tcp
+</code></pre></div><p>重载防火墙配置</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">firewall-cmd --reload
+</code></pre></div>
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        <script src="https://utteranc.es/client.js"
+    repo= "https://github.com/night2049/night2049"
+    issue-term="url"
+    
+    theme="github-light"
+    crossorigin="anonymous"
+    async>
+  </script>
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    ©
+    
+      2017 -
+    
+    2021
+     Night 
+    ·
+    Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+      
+      <script src="/js/coder.min.03b17769f4f91ae35667e1f2a1ca8c16f50562576cf90ff32b3179926914daa5.js" integrity="sha256-A7F3afT5GuNWZ&#43;HyocqMFvUFYlds&#43;Q/zKzF5kmkU2qU="></script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+  </body>
+
+</html>

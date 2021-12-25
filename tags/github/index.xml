@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>GitHub on NoesBlog</title>
+    <link>/tags/github/</link>
+    <description>Recent content in GitHub on NoesBlog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 02 Feb 2018 02:49:52 +0000</lastBuildDate><atom:link href="/tags/github/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GitHub SSH密钥生成与配置</title>
+      <link>/2018/02/2018-02-02-github-ssh%E5%AF%86%E9%92%A5%E7%94%9F%E6%88%90%E4%B8%8E%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Fri, 02 Feb 2018 02:49:52 +0000</pubDate>
+      
+      <guid>/2018/02/2018-02-02-github-ssh%E5%AF%86%E9%92%A5%E7%94%9F%E6%88%90%E4%B8%8E%E9%85%8D%E7%BD%AE/</guid>
+      <description>打开Git Bash
+ssh-keygen -t rsa -b 4096 -C &amp;#34;你的邮箱&amp;#34; 直接回车确认即可，也可根据提示进行设置。
+添加ssh key+
+eval $(ssh-agent -s) ssh-add ~/.ssh/id_rsa 然后打开：
+C:\Users\Your UserName\.ssh\id_rsa.pub 复制文件所有内容然后打开GitHub，在个人设置中点击SSH and GPG keys，然后点击New SSH key。设置你的这个ssh key的标题，然后将文件内容复制到key中，点击Add SSH key即可完成操作。</description>
+    </item>
+    
+  </channel>
+</rss>

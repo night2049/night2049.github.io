@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Language" content="en">
+    <meta name="color-scheme" content="light dark">
+
+    
+      <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests; block-all-mixed-content; default-src 'self'; child-src 'self'; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net/; form-action 'self'; frame-src 'self'; img-src 'self'; object-src 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/ https://cdn.jsdelivr.net/; script-src 'self' 'unsafe-inline' https://www.google-analytics.com; prefetch-src 'self'; connect-src 'self' https://www.google-analytics.com;">
+
+    
+
+    <meta name="author" content="Night">
+    <meta name="description" content="算一算，来杭州快六个月了，从刚来的时候对着城市的憧憬，到现在的平淡，中间或许多了些什么。
+初来杭州时，惊讶于杭州人们的高素质，车会停在斑马线前让人，大多数人不会闯红灯，以及偶尔的小感动。
+记得刚来杭州时，住在余杭区那边，有一次出去面试完后回家，中途下雨，然后一位不认识的大哥上来给我打伞，并送我到小区楼下，当时就有点小小的感动。
+虽然现在可能都记不太清那位大哥的脸，但是时常会想起这件事情，偶尔也会觉得杭州充满了人情味。
+在杭州待了快六个月，还是十分的喜爱这座城市，虽然它的发展不是那么的迅猛。
+这里我不得不吐槽一下，杭州想找个吃饭的地儿是真的难，经常出去转了大半圈都没找到一家想吃的，吃饭的地儿太少了！！
+其他的话其实也还可以，之前在弄户口的事，感觉还是比较省心的，政府的工作人员态度也都非常好，效率也还不错。
+再过几周户口就要迁过来了，听说以后想再迁回老家就比较难了，不过也没怎么考虑过回家，毕竟作为一名开发狗也只能在北上广深杭这么几个地方待了。
+在公司干了也快四个月了，平常工作也不算太忙，偶尔还能闲下来看看书，补充下知识，最近在看docker的书，感觉docker这个东西还是比较方便开发的，后续可能会考虑在正式的生产环境上测试。
+其他的也没什么好说的了，主要熬夜的习惯改起来比较困难，所以平常一回家基本上就是弄到一两点才睡，这点需要改善，还有许久没去的健身房也应该多去去了，主要滨江这边的健身房实在是太少了，找不到合适的，而且工作了，也希望找一个比较好一点的健身房，最好是带泳池的那种，因为我个人非常喜欢游泳。
+博客这个东西平常也没怎么更新了，一方面是需要开始忙工作的事，另一方面则是平常基本上在忙着学新的技术，基本上没什么时间更新博客，不过之前我发现了一个GitBook的东西，这个东西比较方便，所以我平常写一些比较系统化的东西基本上都是在GitBook上面写，博客主要就是同步的问题比较烦人，所以平常基本上没怎么更新，偶尔写好了技术文章才会放上来。
+其他的没什么好说的了，暂时就先这样吧。">
+    <meta name="keywords" content="blog,developer,personal">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="生活日记01"/>
+<meta name="twitter:description" content="算一算，来杭州快六个月了，从刚来的时候对着城市的憧憬，到现在的平淡，中间或许多了些什么。
+初来杭州时，惊讶于杭州人们的高素质，车会停在斑马线前让人，大多数人不会闯红灯，以及偶尔的小感动。
+记得刚来杭州时，住在余杭区那边，有一次出去面试完后回家，中途下雨，然后一位不认识的大哥上来给我打伞，并送我到小区楼下，当时就有点小小的感动。
+虽然现在可能都记不太清那位大哥的脸，但是时常会想起这件事情，偶尔也会觉得杭州充满了人情味。
+在杭州待了快六个月，还是十分的喜爱这座城市，虽然它的发展不是那么的迅猛。
+这里我不得不吐槽一下，杭州想找个吃饭的地儿是真的难，经常出去转了大半圈都没找到一家想吃的，吃饭的地儿太少了！！
+其他的话其实也还可以，之前在弄户口的事，感觉还是比较省心的，政府的工作人员态度也都非常好，效率也还不错。
+再过几周户口就要迁过来了，听说以后想再迁回老家就比较难了，不过也没怎么考虑过回家，毕竟作为一名开发狗也只能在北上广深杭这么几个地方待了。
+在公司干了也快四个月了，平常工作也不算太忙，偶尔还能闲下来看看书，补充下知识，最近在看docker的书，感觉docker这个东西还是比较方便开发的，后续可能会考虑在正式的生产环境上测试。
+其他的也没什么好说的了，主要熬夜的习惯改起来比较困难，所以平常一回家基本上就是弄到一两点才睡，这点需要改善，还有许久没去的健身房也应该多去去了，主要滨江这边的健身房实在是太少了，找不到合适的，而且工作了，也希望找一个比较好一点的健身房，最好是带泳池的那种，因为我个人非常喜欢游泳。
+博客这个东西平常也没怎么更新了，一方面是需要开始忙工作的事，另一方面则是平常基本上在忙着学新的技术，基本上没什么时间更新博客，不过之前我发现了一个GitBook的东西，这个东西比较方便，所以我平常写一些比较系统化的东西基本上都是在GitBook上面写，博客主要就是同步的问题比较烦人，所以平常基本上没怎么更新，偶尔写好了技术文章才会放上来。
+其他的没什么好说的了，暂时就先这样吧。"/>
+
+    <meta property="og:title" content="生活日记01" />
+<meta property="og:description" content="算一算，来杭州快六个月了，从刚来的时候对着城市的憧憬，到现在的平淡，中间或许多了些什么。
+初来杭州时，惊讶于杭州人们的高素质，车会停在斑马线前让人，大多数人不会闯红灯，以及偶尔的小感动。
+记得刚来杭州时，住在余杭区那边，有一次出去面试完后回家，中途下雨，然后一位不认识的大哥上来给我打伞，并送我到小区楼下，当时就有点小小的感动。
+虽然现在可能都记不太清那位大哥的脸，但是时常会想起这件事情，偶尔也会觉得杭州充满了人情味。
+在杭州待了快六个月，还是十分的喜爱这座城市，虽然它的发展不是那么的迅猛。
+这里我不得不吐槽一下，杭州想找个吃饭的地儿是真的难，经常出去转了大半圈都没找到一家想吃的，吃饭的地儿太少了！！
+其他的话其实也还可以，之前在弄户口的事，感觉还是比较省心的，政府的工作人员态度也都非常好，效率也还不错。
+再过几周户口就要迁过来了，听说以后想再迁回老家就比较难了，不过也没怎么考虑过回家，毕竟作为一名开发狗也只能在北上广深杭这么几个地方待了。
+在公司干了也快四个月了，平常工作也不算太忙，偶尔还能闲下来看看书，补充下知识，最近在看docker的书，感觉docker这个东西还是比较方便开发的，后续可能会考虑在正式的生产环境上测试。
+其他的也没什么好说的了，主要熬夜的习惯改起来比较困难，所以平常一回家基本上就是弄到一两点才睡，这点需要改善，还有许久没去的健身房也应该多去去了，主要滨江这边的健身房实在是太少了，找不到合适的，而且工作了，也希望找一个比较好一点的健身房，最好是带泳池的那种，因为我个人非常喜欢游泳。
+博客这个东西平常也没怎么更新了，一方面是需要开始忙工作的事，另一方面则是平常基本上在忙着学新的技术，基本上没什么时间更新博客，不过之前我发现了一个GitBook的东西，这个东西比较方便，所以我平常写一些比较系统化的东西基本上都是在GitBook上面写，博客主要就是同步的问题比较烦人，所以平常基本上没怎么更新，偶尔写好了技术文章才会放上来。
+其他的没什么好说的了，暂时就先这样吧。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/2018/01/2018-01-25-%E7%94%9F%E6%B4%BB%E6%97%A5%E8%AE%B001/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2018-01-24T17:38:11+00:00" />
+<meta property="article:modified_time" content="2018-01-24T17:38:11+00:00" />
+
+
+
+    <title>
+  生活日记01 · NoesBlog
+</title>
+
+    
+      <link rel="canonical" href="/2018/01/2018-01-25-%E7%94%9F%E6%B4%BB%E6%97%A5%E8%AE%B001/">
+    
+
+    <link rel="preload" href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
+
+    
+      
+      
+      <link rel="stylesheet" href="/css/coder.min.d9fddbffe6f27e69985dc5fe0471cdb0e57fbf4775714bc3d847accb08f4a1f6.css" integrity="sha256-2f3b/&#43;byfmmYXcX&#43;BHHNsOV/v0d1cUvD2Eesywj0ofY=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+      
+        
+        
+        <link rel="stylesheet" href="/css/coder-dark.min.002ee2378e14c7a68f1f0a53d9694ed252090987c4e768023fac694a4fc5f793.css" integrity="sha256-AC7iN44Ux6aPHwpT2WlO0lIJCYfE52gCP6xpSk/F95M=" crossorigin="anonymous" media="screen" />
+      
+    
+
+    
+
+    
+
+    <link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+    <meta name="generator" content="Hugo 0.91.2" />
+  </head>
+
+  
+  
+    
+  
+  <body class="preload-transitions colorscheme-auto">
+    
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="/">
+      NoesBlog
+    </a>
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/posts/">博客</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/tags/">标签</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/about/">关于</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="/2018/01/2018-01-25-%E7%94%9F%E6%B4%BB%E6%97%A5%E8%AE%B001/">
+              生活日记01
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+              <time datetime='2018-01-24T17:38:11Z'>
+                2018/01/24 17:38
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              One-minute read
+            </span>
+          </div>
+          <div class="authors">
+    <i class="fa fa-user" aria-hidden="true"></i>
+      <a href="/authors/night/">Night</a></div>
+          
+          <div class="tags">
+  <i class="fa fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/%E7%94%9F%E6%B4%BB/">生活</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div>
+        
+        <p>算一算，来杭州快六个月了，从刚来的时候对着城市的憧憬，到现在的平淡，中间或许多了些什么。</p>
+<p>初来杭州时，惊讶于杭州人们的高素质，车会停在斑马线前让人，大多数人不会闯红灯，以及偶尔的小感动。</p>
+<p>记得刚来杭州时，住在余杭区那边，有一次出去面试完后回家，中途下雨，然后一位不认识的大哥上来给我打伞，并送我到小区楼下，当时就有点小小的感动。</p>
+<p>虽然现在可能都记不太清那位大哥的脸，但是时常会想起这件事情，偶尔也会觉得杭州充满了人情味。</p>
+<p>在杭州待了快六个月，还是十分的喜爱这座城市，虽然它的发展不是那么的迅猛。</p>
+<p>这里我不得不吐槽一下，杭州想找个吃饭的地儿是真的难，经常出去转了大半圈都没找到一家想吃的，吃饭的地儿太少了！！</p>
+<p>其他的话其实也还可以，之前在弄户口的事，感觉还是比较省心的，政府的工作人员态度也都非常好，效率也还不错。</p>
+<p>再过几周户口就要迁过来了，听说以后想再迁回老家就比较难了，不过也没怎么考虑过回家，毕竟作为一名开发狗也只能在北上广深杭这么几个地方待了。</p>
+<p>在公司干了也快四个月了，平常工作也不算太忙，偶尔还能闲下来看看书，补充下知识，最近在看docker的书，感觉docker这个东西还是比较方便开发的，后续可能会考虑在正式的生产环境上测试。</p>
+<p>其他的也没什么好说的了，主要熬夜的习惯改起来比较困难，所以平常一回家基本上就是弄到一两点才睡，这点需要改善，还有许久没去的健身房也应该多去去了，主要滨江这边的健身房实在是太少了，找不到合适的，而且工作了，也希望找一个比较好一点的健身房，最好是带泳池的那种，因为我个人非常喜欢游泳。</p>
+<p>博客这个东西平常也没怎么更新了，一方面是需要开始忙工作的事，另一方面则是平常基本上在忙着学新的技术，基本上没什么时间更新博客，不过之前我发现了一个GitBook的东西，这个东西比较方便，所以我平常写一些比较系统化的东西基本上都是在GitBook上面写，博客主要就是同步的问题比较烦人，所以平常基本上没怎么更新，偶尔写好了技术文章才会放上来。</p>
+<p>其他的没什么好说的了，暂时就先这样吧。</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        <script src="https://utteranc.es/client.js"
+    repo= "https://github.com/night2049/night2049"
+    issue-term="url"
+    
+    theme="github-light"
+    crossorigin="anonymous"
+    async>
+  </script>
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    ©
+    
+      2017 -
+    
+    2021
+     Night 
+    ·
+    Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+      
+      <script src="/js/coder.min.03b17769f4f91ae35667e1f2a1ca8c16f50562576cf90ff32b3179926914daa5.js" integrity="sha256-A7F3afT5GuNWZ&#43;HyocqMFvUFYlds&#43;Q/zKzF5kmkU2qU="></script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+  </body>
+
+</html>

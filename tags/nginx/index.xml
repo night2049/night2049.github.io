@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Nginx on NoesBlog</title>
+    <link>/tags/nginx/</link>
+    <description>Recent content in Nginx on NoesBlog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 02 Feb 2018 02:24:36 +0000</lastBuildDate><atom:link href="/tags/nginx/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CentOS7 install Nginx</title>
+      <link>/2018/02/2018-02-02-centos7-install-nginx/</link>
+      <pubDate>Fri, 02 Feb 2018 02:24:36 +0000</pubDate>
+      
+      <guid>/2018/02/2018-02-02-centos7-install-nginx/</guid>
+      <description>教程适用于CentOS7，使用编译安装方式，在使用本教程时请注意你的安装路径是否一致！
+教程测试于CentOS7.4 64位
+Nginx 编译安装
+更新yum软件
+yum update -y 安装编译工具等
+yum -y install gcc pcre pcre-devel zlib zlib-devel openssl oepnssl-devel 下载Nginx包
+wget http://nginx.org/download/nginx-1.12.2.tar.gz 解压tar.gz包
+tar zxf nginx-1.12.2.tar.gz 执行安装流程
+进入目录
+cd nginx-1.12.2 指定安装路径
+./configure --prefix=/opt/nginx 编译及安装
+make &amp;amp;&amp;amp; make install 跳转到nginx程序目录
+cd /opt/nginx/sbin/ 使用脚本启动nginx
+./nginx 查看进程
+ps aux|grep nginx 设置开机自启动
+vi /etc/rc.d/rc.local 然后修改文本内容，在其下添加一行
+/opt/nginx/sbin/nginx 然后保存退出即可
+其他命令
+停止Nginx
+./nginx -s stop 重载Nginx服务
+./nginx -s reload </description>
+    </item>
+    
+  </channel>
+</rss>

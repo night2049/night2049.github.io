@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Language" content="en">
+    <meta name="color-scheme" content="light dark">
+
+    
+      <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests; block-all-mixed-content; default-src 'self'; child-src 'self'; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net/; form-action 'self'; frame-src 'self'; img-src 'self'; object-src 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/ https://cdn.jsdelivr.net/; script-src 'self' 'unsafe-inline' https://www.google-analytics.com; prefetch-src 'self'; connect-src 'self' https://www.google-analytics.com;">
+
+    
+
+    <meta name="author" content="Night">
+    <meta name="description" content="解决方法：
+http://blog.csdn.net/VBcom/article/details/9140197
+打开上方链接，下载增强版后进行修复即可。出现此类问题通常是由于没有安装vc&#43;&#43;系列包，使用上方链接的修复工具进行修复即可。">
+    <meta name="keywords" content="blog,developer,personal">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="安装mysql解压版出现找不到MSVCR120.dll错误解决办法"/>
+<meta name="twitter:description" content="解决方法：
+http://blog.csdn.net/VBcom/article/details/9140197
+打开上方链接，下载增强版后进行修复即可。出现此类问题通常是由于没有安装vc&#43;&#43;系列包，使用上方链接的修复工具进行修复即可。"/>
+
+    <meta property="og:title" content="安装mysql解压版出现找不到MSVCR120.dll错误解决办法" />
+<meta property="og:description" content="解决方法：
+http://blog.csdn.net/VBcom/article/details/9140197
+打开上方链接，下载增强版后进行修复即可。出现此类问题通常是由于没有安装vc&#43;&#43;系列包，使用上方链接的修复工具进行修复即可。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/2018/01/%E5%AE%89%E8%A3%85mysql%E8%A7%A3%E5%8E%8B%E7%89%88%E5%87%BA%E7%8E%B0%E6%89%BE%E4%B8%8D%E5%88%B0msvcr120.dll%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2018-01-24T17:30:28+00:00" />
+<meta property="article:modified_time" content="2018-01-24T17:30:28+00:00" />
+
+
+
+    <title>
+  安装mysql解压版出现找不到MSVCR120.dll错误解决办法 · NoesBlog
+</title>
+
+    
+      <link rel="canonical" href="/2018/01/%E5%AE%89%E8%A3%85mysql%E8%A7%A3%E5%8E%8B%E7%89%88%E5%87%BA%E7%8E%B0%E6%89%BE%E4%B8%8D%E5%88%B0msvcr120.dll%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/">
+    
+
+    <link rel="preload" href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as="font" type="font/woff2" crossorigin>
+
+    
+      
+      
+      <link rel="stylesheet" href="/css/coder.min.d9fddbffe6f27e69985dc5fe0471cdb0e57fbf4775714bc3d847accb08f4a1f6.css" integrity="sha256-2f3b/&#43;byfmmYXcX&#43;BHHNsOV/v0d1cUvD2Eesywj0ofY=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+      
+        
+        
+        <link rel="stylesheet" href="/css/coder-dark.min.002ee2378e14c7a68f1f0a53d9694ed252090987c4e768023fac694a4fc5f793.css" integrity="sha256-AC7iN44Ux6aPHwpT2WlO0lIJCYfE52gCP6xpSk/F95M=" crossorigin="anonymous" media="screen" />
+      
+    
+
+    
+
+    
+
+    <link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+    <meta name="generator" content="Hugo 0.91.2" />
+  </head>
+
+  
+  
+    
+  
+  <body class="preload-transitions colorscheme-auto">
+    
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="/">
+      NoesBlog
+    </a>
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/posts/">博客</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/tags/">标签</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/about/">关于</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="/2018/01/%E5%AE%89%E8%A3%85mysql%E8%A7%A3%E5%8E%8B%E7%89%88%E5%87%BA%E7%8E%B0%E6%89%BE%E4%B8%8D%E5%88%B0msvcr120.dll%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/">
+              安装mysql解压版出现找不到MSVCR120.dll错误解决办法
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+              <time datetime='2018-01-24T17:30:28Z'>
+                2018/01/24 17:30
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              One-minute read
+            </span>
+          </div>
+          <div class="authors">
+    <i class="fa fa-user" aria-hidden="true"></i>
+      <a href="/authors/night/">Night</a></div>
+          
+          <div class="tags">
+  <i class="fa fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/tags/mysql/">MySQL</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      <div>
+        
+        <p>解决方法：</p>
+<p><a href="http://blog.csdn.net/VBcom/article/details/9140197">http://blog.csdn.net/VBcom/article/details/9140197</a></p>
+<p>打开上方链接，下载增强版后进行修复即可。出现此类问题通常是由于没有安装vc++系列包，使用上方链接的修复工具进行修复即可。</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        <script src="https://utteranc.es/client.js"
+    repo= "https://github.com/night2049/night2049"
+    issue-term="url"
+    
+    theme="github-light"
+    crossorigin="anonymous"
+    async>
+  </script>
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    ©
+    
+      2017 -
+    
+    2021
+     Night 
+    ·
+    Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+      
+      <script src="/js/coder.min.03b17769f4f91ae35667e1f2a1ca8c16f50562576cf90ff32b3179926914daa5.js" integrity="sha256-A7F3afT5GuNWZ&#43;HyocqMFvUFYlds&#43;Q/zKzF5kmkU2qU="></script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+  </body>
+
+</html>
