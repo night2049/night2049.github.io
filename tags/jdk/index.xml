@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>JDK on NoesBlog</title><link>/tags/jdk/</link><description>Recent content in JDK on NoesBlog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Fri, 02 Feb 2018 02:25:58 +0000</lastBuildDate><atom:link href="/tags/jdk/index.xml" rel="self" type="application/rss+xml"/><item><title>CentOS7 install Java JDK</title><link>/2018/02/2018-02-02-centos7-install-java-jdk/</link><pubDate>Fri, 02 Feb 2018 02:25:58 +0000</pubDate><guid>/2018/02/2018-02-02-centos7-install-java-jdk/</guid><description>教程适用于CentOS7，使用编译安装方式，在使用本教程时请注意你的安装路径是否一致！
+教程测试于CentOS7.4 64位
+Linux Centos编译安装JDK1.8
+跳转到目录
+cd /opt 下载jdk编译包
+wget http://download.oracle.com/otn-pub/java/jdk/8u152-b16/aa0333dd3019491ca4f6ddbe78cdb6d0/jdk-8u152-linux-x64.tar.gz?AuthParam=1514528836_280273525425c86385407d123f085886 解压文件
+tar zxvf jdk-8u152-linux-x64.tar.gz 配置环境变量
+vi /etc/profile.d/java.sh 在文件内写入如下内容
+JAVA_HOME=/opt/jdk1.8.0_152 PATH=$JAVA_HOME/bin/:$PATH export JAVA_HOME PATH 重载该文件
+source /etc/profile 运行java和javac命令测试JDK是否安装成功</description></item></channel></rss>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>生活日记 on NoesBlog</title><link>/tags/%E7%94%9F%E6%B4%BB%E6%97%A5%E8%AE%B0/</link><description>Recent content in 生活日记 on NoesBlog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 24 Jan 2018 17:28:42 +0000</lastBuildDate><atom:link href="/tags/%E7%94%9F%E6%B4%BB%E6%97%A5%E8%AE%B0/index.xml" rel="self" type="application/rss+xml"/><item><title>生活日记02</title><link>/2018/01/2018-03-11-%E7%94%9F%E6%B4%BB%E6%97%A5%E8%AE%B002/</link><pubDate>Wed, 24 Jan 2018 17:28:42 +0000</pubDate><guid>/2018/01/2018-03-11-%E7%94%9F%E6%B4%BB%E6%97%A5%E8%AE%B002/</guid><description>好久没有写生活日记了，今天加班完回家闲的无聊正好顺便写一写。
+先说说工作的事情吧，现在也正式开始负责后端整体框架的搭建了，在后端技术的整合过程中踩了之前很多时候都没有遇到过的坑，有时间的话我会将具体的整合经验发上来，不过最近比较忙所以没有写这个东西。
+在过去的一年里，自己的技术进步说大不大，说小不小，对比大牛来说，自己的技术还是很烂的，广度足够，但是深度不够，遇到很多问题都是可以模糊的定位到具体的问题原因所在，但是不能直接定位到Bug的发生位置，说一个比较好笑的，正好今天在写一个接口，前端那边调试接口的时候要么报404，要么就是415，有时候还会出现500，看了半天的代码都没有发现问题，最后我根据前端的代码推断是不是因为JSON传递的问题所以SpringMVC无法将数据封装成对象访问到接口所以出现问题，通过一系列排查后，在前端页面的ajax部分添加了application/json，才解决了这个问题。
+说来也是好笑，整体的业务逻辑没有出错，问题却唯独出在了ajax请求上，前端也说他之前也没见过ajax请求中需要设置这个东西的，我在查看他页面代码时候，也只是勉强的根据他的ajax代码推断是不是他访问接口的时候没有设置数据类型，但是设置了返回的数据类型为json，所以出现了这个问题，经过我们一系列的排查后，这个问题终于在半小时后得以解决。
+对于工作上的事情，目前暂时就说到这里了。
+有关个人的技术学习，在最近的半年时间里，学习了SpringBoot，Redis，重新整理与学习了Spring，SpringMVC，MyBatis，Java基础这一块。
+在之后的半年时间里，预计准备学习Spring Cloud，Dubbo，等一系列分布式解决方案，以及Spring Security框架这一块。然后将Java多线程以及Java异步包这一块进行整理与学习，MySQL慢查询优化这一块也需要一定的提升，以及对于数据表的切割与设计也需要一定的提升，这些都在我的个人计划之中。
+另外就是对于我个人的长期发展问题，目前也是仍在筹备中，由于个人的资本累积尚有不足，因此还需要等待一段时间才能正式开展计划，这里就暂时先不说了。
+其他的暂时也没有什么好说的，就先到此为止吧。</description></item></channel></rss>

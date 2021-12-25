@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Windows on NoesBlog</title><link>/tags/windows/</link><description>Recent content in Windows on NoesBlog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 24 Jan 2018 17:37:46 +0000</lastBuildDate><atom:link href="/tags/windows/index.xml" rel="self" type="application/rss+xml"/><item><title>winload.exe windows无法验证此文件的数字签名问题</title><link>/2018/01/2018-01-25-winload-exe-windows%E6%97%A0%E6%B3%95%E9%AA%8C%E8%AF%81%E6%AD%A4%E6%96%87%E4%BB%B6%E7%9A%84%E6%95%B0%E5%AD%97%E7%AD%BE%E5%90%8D%E9%97%AE%E9%A2%98/</link><pubDate>Wed, 24 Jan 2018 17:37:46 +0000</pubDate><guid>/2018/01/2018-01-25-winload-exe-windows%E6%97%A0%E6%B3%95%E9%AA%8C%E8%AF%81%E6%AD%A4%E6%96%87%E4%BB%B6%E7%9A%84%E6%95%B0%E5%AD%97%E7%AD%BE%E5%90%8D%E9%97%AE%E9%A2%98/</guid><description>之前用了软媒魔方的修改开机启动画面，将虚拟机中的win7精简版的开机画面给替换掉。然后就将软媒给卸载了。
+刚才手贱用360杀毒扫描了一下，提示winload.exe及另外一个文件数字签名不对，遂点击处理，处理完毕也没有什么问题，待过了一会儿因为虚拟机网络有点问题就重启了一下，于是发现这样的错误提示。
+winload.exe windows无法验证此文件的数字签名
+我还有点蒙，都不知道怎么的就无法开机了？？？
+于是尝试进入安全模式，进不去，其他的安全模式也都试过，进不去，均提示验证签名失败。
+网上查了查，以为是引导的问题，但是系统是虚拟机没法用pe进系统修复，后来直接查了错误代码，发现了如何解决。
+1.在你需要修复的虚拟机上右键点击，设置CD/DVD的ISO文件路径为windows7 ISO文件的路径，如果你是物理主机的话使用安装U盘插在电脑上即可。
+2.进入bios选择从CD/DVD启动，vmware进虚拟机bios的快捷键是esc或f12或f2，物理机如果你使用的是光盘请选择从光盘启动，如果是U盘请选择从U盘启动，物理机进入bios的快捷键各不相同，请询问你的主板厂商查询对应的快捷键。
+3.从CD/DVD启动后稍等一会儿，会出现选择语言界面，点击下一步。然后会显示安装界面，在左下角会有一个修复windows的选项，点击这个修复windows。
+4.之后可以直接选择修复windows的错误，当然通常会提示失败，选择下方的高级选项。
+5.点击高级选项后会有几个选择，分别是从系统备份等进行恢复，这里我们选择命令行模式
+6.进入命令行模式后，使用
+c:
+命令进入你的c盘，但在此模式下通常c盘符并非你的windows系统盘，以博主的虚拟机为例，虚拟机内c盘变为e盘，因此应输入
+e:
+进入windows系统盘。
+7.如何确定你已经进入系统盘？输入以下
+dir
+命令，若命令提示符打印出来的目录包含 windows,Program Files (x86)这两个目录，则当前盘符为windows系统盘。
+8.其他的盘符切换方式:
+d: e: f: g: h: 9.确定好你的windows系统盘符后，使用命令对系统进行修复
+copy C:\Windows\System32\Boot\winload.exe C:\Windows\System32\
+上方命令中的两个C:需修改为你之前确定的windows系统盘盘符，以博主为例是
+copy E:\Windows\System32\Boot\winload.exe E:\Windows\System32\
+执行上方命令正确后，会跳出一个提示，提示你是否进行覆盖？
+10.输入
+yes
+回车执行命令，然后重启电脑，即可进入你的系统。
+修复失败通常错误：
+1.在第9步时路径错误2.第9步的copy后面需追加一个空格，第二个*:\Windows\System32\前同样需要追加一个空格3.在第十步没有在命令行控制台输入yes并回车tips：命令行即控制台</description></item></channel></rss>

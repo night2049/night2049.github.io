@@ -1,0 +1,148 @@
+<!doctype html><html lang=en>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta http-equiv=content-language content="en">
+<meta name=color-scheme content="light dark">
+<meta name=author content="Night">
+<meta name=description content="在没有调试之前，几乎所有的 js，css 文件都是从 cdn 上面加载的，请求数在 25 到 30 之间，有时候可能 cdn 加载问题会导致页面重新渲染，因此将小的 js，css 文件使用源站加载，用了 Autoptimize 合并了这些文件，目前请求数在 7 个左右，减少了页面发送请求的数量，也避免了某个文件没有加载完成导致的页面加载过慢的问题。
+删除了评论部分的 emoji 图标，这些图标数量在 20 个左右，都是单独加载的，因此若有个别图标没有加载完成的话页面速度会慢一些，这里直接砍掉。
+调整了一下页面的字体，删除了 font-aweasome 这个字体，因为这个字体大小在 75kb 左右，而且仅有返回顶部与菜单这部分引用了该字体，感觉没有必要，删除了这个字体的引用，以及将返回顶部的文字修改为文字类型。
+php-fpm 方面，调整了性能参数，最大进程数设置为 30，初始进程数为 5，并且增加了定时任务，每两小时清理一次内存。
+wordpress 方面，调整了 Autoptimize 插件的参数，具体参数这里就不截图了，根据自己站点的需求调整即可。删除了 W3 Total Cache，新增了 WP Super Cache 插件缓存所有页面，实测使用 W3 Total Cache 缓存页面，页面加载时间在 100-200ms，也就是那个 / 文件，如果使用 WP Super Cache 缓存页面的话，除了首次缓存的时候页面加载时间在 150ms 左右，其他的时间均在 30ms 内即可加载完成 html 页面，相比来说 WP Super Cache 速度提升比 W3 Total Cache 要好一些。
+删除了一些页面的图片文件，其中首页上方背景图片之前是 90kb 左右，通常是在最后加载，时间大约为 300ms 才加载完，这里使用的是新浪的图床，初步预估可能是图片过大的原因，压缩图片质量到 30kb 左右，仍然需要 300ms 左右才可加载完成，这里就先砍掉这张图片了，有空的话再加。">
+<meta name=keywords content="blog,developer,personal">
+<meta name=twitter:card content="summary">
+<meta name=twitter:title content="WordPress优化加载速度调试实战">
+<meta name=twitter:description content="在没有调试之前，几乎所有的 js，css 文件都是从 cdn 上面加载的，请求数在 25 到 30 之间，有时候可能 cdn 加载问题会导致页面重新渲染，因此将小的 js，css 文件使用源站加载，用了 Autoptimize 合并了这些文件，目前请求数在 7 个左右，减少了页面发送请求的数量，也避免了某个文件没有加载完成导致的页面加载过慢的问题。
+删除了评论部分的 emoji 图标，这些图标数量在 20 个左右，都是单独加载的，因此若有个别图标没有加载完成的话页面速度会慢一些，这里直接砍掉。
+调整了一下页面的字体，删除了 font-aweasome 这个字体，因为这个字体大小在 75kb 左右，而且仅有返回顶部与菜单这部分引用了该字体，感觉没有必要，删除了这个字体的引用，以及将返回顶部的文字修改为文字类型。
+php-fpm 方面，调整了性能参数，最大进程数设置为 30，初始进程数为 5，并且增加了定时任务，每两小时清理一次内存。
+wordpress 方面，调整了 Autoptimize 插件的参数，具体参数这里就不截图了，根据自己站点的需求调整即可。删除了 W3 Total Cache，新增了 WP Super Cache 插件缓存所有页面，实测使用 W3 Total Cache 缓存页面，页面加载时间在 100-200ms，也就是那个 / 文件，如果使用 WP Super Cache 缓存页面的话，除了首次缓存的时候页面加载时间在 150ms 左右，其他的时间均在 30ms 内即可加载完成 html 页面，相比来说 WP Super Cache 速度提升比 W3 Total Cache 要好一些。
+删除了一些页面的图片文件，其中首页上方背景图片之前是 90kb 左右，通常是在最后加载，时间大约为 300ms 才加载完，这里使用的是新浪的图床，初步预估可能是图片过大的原因，压缩图片质量到 30kb 左右，仍然需要 300ms 左右才可加载完成，这里就先砍掉这张图片了，有空的话再加。">
+<meta property="og:title" content="WordPress优化加载速度调试实战">
+<meta property="og:description" content="在没有调试之前，几乎所有的 js，css 文件都是从 cdn 上面加载的，请求数在 25 到 30 之间，有时候可能 cdn 加载问题会导致页面重新渲染，因此将小的 js，css 文件使用源站加载，用了 Autoptimize 合并了这些文件，目前请求数在 7 个左右，减少了页面发送请求的数量，也避免了某个文件没有加载完成导致的页面加载过慢的问题。
+删除了评论部分的 emoji 图标，这些图标数量在 20 个左右，都是单独加载的，因此若有个别图标没有加载完成的话页面速度会慢一些，这里直接砍掉。
+调整了一下页面的字体，删除了 font-aweasome 这个字体，因为这个字体大小在 75kb 左右，而且仅有返回顶部与菜单这部分引用了该字体，感觉没有必要，删除了这个字体的引用，以及将返回顶部的文字修改为文字类型。
+php-fpm 方面，调整了性能参数，最大进程数设置为 30，初始进程数为 5，并且增加了定时任务，每两小时清理一次内存。
+wordpress 方面，调整了 Autoptimize 插件的参数，具体参数这里就不截图了，根据自己站点的需求调整即可。删除了 W3 Total Cache，新增了 WP Super Cache 插件缓存所有页面，实测使用 W3 Total Cache 缓存页面，页面加载时间在 100-200ms，也就是那个 / 文件，如果使用 WP Super Cache 缓存页面的话，除了首次缓存的时候页面加载时间在 150ms 左右，其他的时间均在 30ms 内即可加载完成 html 页面，相比来说 WP Super Cache 速度提升比 W3 Total Cache 要好一些。
+删除了一些页面的图片文件，其中首页上方背景图片之前是 90kb 左右，通常是在最后加载，时间大约为 300ms 才加载完，这里使用的是新浪的图床，初步预估可能是图片过大的原因，压缩图片质量到 30kb 左右，仍然需要 300ms 左右才可加载完成，这里就先砍掉这张图片了，有空的话再加。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="/2018/02/2018-02-12-wordpress%E4%BC%98%E5%8C%96%E5%8A%A0%E8%BD%BD%E9%80%9F%E5%BA%A6%E8%B0%83%E8%AF%95%E5%AE%9E%E6%88%98/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2018-02-12T12:22:30+00:00">
+<meta property="article:modified_time" content="2018-02-12T12:22:30+00:00">
+<title>
+WordPress优化加载速度调试实战 · NoesBlog
+</title>
+<link rel=canonical href=/2018/02/2018-02-12-wordpress%E4%BC%98%E5%8C%96%E5%8A%A0%E8%BD%BD%E9%80%9F%E5%BA%A6%E8%B0%83%E8%AF%95%E5%AE%9E%E6%88%98/>
+<link rel=preload href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as=font type=font/woff2 crossorigin>
+<link rel=stylesheet href=/css/coder.min.d9fddbffe6f27e69985dc5fe0471cdb0e57fbf4775714bc3d847accb08f4a1f6.css integrity="sha256-2f3b/+byfmmYXcX+BHHNsOV/v0d1cUvD2Eesywj0ofY=" crossorigin=anonymous media=screen>
+<link rel=stylesheet href=/css/coder-dark.min.002ee2378e14c7a68f1f0a53d9694ed252090987c4e768023fac694a4fc5f793.css integrity="sha256-AC7iN44Ux6aPHwpT2WlO0lIJCYfE52gCP6xpSk/F95M=" crossorigin=anonymous media=screen>
+<link rel=icon type=image/png href=/images/favicon-32x32.png sizes=32x32>
+<link rel=icon type=image/png href=/images/favicon-16x16.png sizes=16x16>
+<link rel=apple-touch-icon href=/images/apple-touch-icon.png>
+<link rel=apple-touch-icon sizes=180x180 href=/images/apple-touch-icon.png>
+<meta name=generator content="Hugo 0.91.2">
+</head>
+<body class="preload-transitions colorscheme-auto">
+<div class=float-container>
+<a id=dark-mode-toggle class=colorscheme-toggle>
+<i class="fa fa-adjust fa-fw" aria-hidden=true></i>
+</a>
+</div>
+<main class=wrapper>
+<nav class=navigation>
+<section class=container>
+<a class=navigation-title href=/>
+NoesBlog
+</a>
+<input type=checkbox id=menu-toggle>
+<label class="menu-button float-right" for=menu-toggle>
+<i class="fa fa-bars fa-fw" aria-hidden=true></i>
+</label>
+<ul class=navigation-list>
+<li class=navigation-item>
+<a class=navigation-link href=/posts/>博客</a>
+</li>
+<li class=navigation-item>
+<a class=navigation-link href=/tags/>标签</a>
+</li>
+<li class=navigation-item>
+<a class=navigation-link href=/about/>关于</a>
+</li>
+</ul>
+</section>
+</nav>
+<div class=content>
+<section class="container post">
+<article>
+<header>
+<div class=post-title>
+<h1 class=title>
+<a class=title-link href=/2018/02/2018-02-12-wordpress%E4%BC%98%E5%8C%96%E5%8A%A0%E8%BD%BD%E9%80%9F%E5%BA%A6%E8%B0%83%E8%AF%95%E5%AE%9E%E6%88%98/>
+WordPress优化加载速度调试实战
+</a>
+</h1>
+</div>
+<div class=post-meta>
+<div class=date>
+<span class=posted-on>
+<i class="fa fa-calendar" aria-hidden=true></i>
+<time datetime=2018-02-12T12:22:30Z>
+2018/02/12 12:22
+</time>
+</span>
+<span class=reading-time>
+<i class="fa fa-clock-o" aria-hidden=true></i>
+One-minute read
+</span>
+</div>
+<div class=authors>
+<i class="fa fa-user" aria-hidden=true></i>
+<a href=/authors/night/>Night</a></div>
+<div class=tags>
+<i class="fa fa-tag" aria-hidden=true></i>
+<span class=tag>
+<a href=/tags/wordpress/>WordPress</a>
+</span>
+<span class=separator>•</span>
+<span class=tag>
+<a href=/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/>性能优化</a>
+</span></div>
+</div>
+</header>
+<div>
+<p>在没有调试之前，几乎所有的 js，css 文件都是从 cdn 上面加载的，请求数在 25 到 30 之间，有时候可能 cdn 加载问题会导致页面重新渲染，因此将小的 js，css 文件使用源站加载，用了 Autoptimize 合并了这些文件，目前请求数在 7 个左右，减少了页面发送请求的数量，也避免了某个文件没有加载完成导致的页面加载过慢的问题。</p>
+<p>删除了评论部分的 emoji 图标，这些图标数量在 20 个左右，都是单独加载的，因此若有个别图标没有加载完成的话页面速度会慢一些，这里直接砍掉。</p>
+<p>调整了一下页面的字体，删除了 font-aweasome 这个字体，因为这个字体大小在 75kb 左右，而且仅有返回顶部与菜单这部分引用了该字体，感觉没有必要，删除了这个字体的引用，以及将返回顶部的文字修改为文字类型。</p>
+<p>php-fpm 方面，调整了性能参数，最大进程数设置为 30，初始进程数为 5，并且增加了定时任务，每两小时清理一次内存。</p>
+<p>wordpress 方面，调整了 Autoptimize 插件的参数，具体参数这里就不截图了，根据自己站点的需求调整即可。删除了 W3 Total Cache，新增了 WP Super Cache 插件缓存所有页面，实测使用 W3 Total Cache 缓存页面，页面加载时间在 100-200ms，也就是那个 / 文件，如果使用 WP Super Cache 缓存页面的话，除了首次缓存的时候页面加载时间在 150ms 左右，其他的时间均在 30ms 内即可加载完成 html 页面，相比来说 WP Super Cache 速度提升比 W3 Total Cache 要好一些。</p>
+<p>删除了一些页面的图片文件，其中首页上方背景图片之前是 90kb 左右，通常是在最后加载，时间大约为 300ms 才加载完，这里使用的是新浪的图床，初步预估可能是图片过大的原因，压缩图片质量到 30kb 左右，仍然需要 300ms 左右才可加载完成，这里就先砍掉这张图片了，有空的话再加。</p>
+<p>目前有个比较奇怪的问题是页面会加载一个 favicon 文件，但是查找了磁盘和 wordpress 目录都没有找到该文件，预估可能是缓存的问题，这里暂不处理。</p>
+<p>经过以上的优化，页面的首次加载时间压缩到了 200ms 内，但是仍然有几率出现握手时间过长的问题，这个问题有点迷，正好 https 证书要到期了就换了一个证书，握手时间过长的问题从之前的百分百降低到了偶发的程度，不过暂时不影响体验，就不做优化了。</p>
+<p>经过上述的优化流程，目前页面的首次加载速度大幅提升，之前大约是 400-800ms 加载完毕，现在是 200ms 内加载完毕。继续打开页面其他的内容可以保持秒开状态，初步预估首次加载握手时间过长的问题可能是 http 重定向到 https 的设置问题，这里有待考究，另外我个人看到有些博客的秒开，他们的有些做法很不错。</p>
+<p>小图片，图标，使用 base64 编码，直接放到页面，这样可以享受 gzip 压缩，而且不需要浏览器发送额外请求加载文件。<br>
+js，css 文件合并，大小在 20kb 以内的 js，css 文件压缩到一个文件中，大小超过这个范围的，例如 bootstrap 的 js，css 文件，可以使用 cdnjs，七牛云这些提供的前端公共库的地址来加载，避免从源站请求。<br>
+其他的页面静态化，页面压缩这些这里就不再概述了。</p>
+<p>由于本人是做Java开发的，对于PHP及WordPress性能调优可能并不专业，此处仅为建议。</p>
+</div>
+<footer>
+<script src=https://utteranc.es/client.js repo=night2049/night2049.github.io issue-term=url label=comment theme=github-light crossorigin=anonymous async></script>
+</footer>
+</article>
+</section>
+</div>
+<footer class=footer>
+<section class=container>
+©
+2017 -
+2021
+Night
+·
+Powered by <a href=https://gohugo.io/>Hugo</a> & <a href=https://github.com/luizdepra/hugo-coder/>Coder</a>.
+</section>
+</footer>
+</main>
+<script src=/js/coder.min.03b17769f4f91ae35667e1f2a1ca8c16f50562576cf90ff32b3179926914daa5.js integrity="sha256-A7F3afT5GuNWZ+HyocqMFvUFYlds+Q/zKzF5kmkU2qU="></script>
+</body>
+</html>

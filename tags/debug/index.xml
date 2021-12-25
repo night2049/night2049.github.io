@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Debug on NoesBlog</title><link>/tags/debug/</link><description>Recent content in Debug on NoesBlog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 04 Jul 2018 13:49:05 +0000</lastBuildDate><atom:link href="/tags/debug/index.xml" rel="self" type="application/rss+xml"/><item><title>微信Debug日记</title><link>/2018/07/2018-07-04-%E5%BE%AE%E4%BF%A1debug%E6%97%A5%E8%AE%B0/</link><pubDate>Wed, 04 Jul 2018 13:49:05 +0000</pubDate><guid>/2018/07/2018-07-04-%E5%BE%AE%E4%BF%A1debug%E6%97%A5%E8%AE%B0/</guid><description>最近接到反馈，公司线上的某微信服务号网页打开特别慢，遂测试，发现确实很慢。
+由于该项目之前是外包开发的，后续我维护的时候也仅对维护的功能加了日志，因此线上不能很好的发现问题。
+首先在本地起了一个服务，然后开始测试，刚开始没什么问题，几次之后也出现了线上的问题，出现微信获取access token超时，但是这个异常在服务器上的日志并没有发现，于是先解决这个问题，经过加日志，打断点等一系列操作，解决完毕后打包到线上仍然有问题，本地测试没有问题，经过在服务器上的一系列排查，包括dns， ping测试，等等，对微信服务器的访问都没有问题。
+最终发工单到腾讯云，因为之前在阿里云上没有这个问题，所以想看是不是服务器出了什么问题。
+经过腾讯云工程师的测试，发现没有问题，不过他建议我将服务器的安全组对外策略为全开，设置安全组策略为0.0.0.0/0 ALL 后，测试正常。
+突然想起这个是在计算机网络中有说过，对外访问时会随机选择一个端口对外访问，而微信文档中则是说仅在80端口生效，因此当初排查的时候没有考虑到访问微信服务器获取openid时会使用其他端口，因此服务器安全组出站策略设置的比较严格，仅保留了80端口和ssh端口，所以导致了微信服务号网页授权特别慢的问题，因为每次应用访问微信服务器获取用户openid时，都无法接收到微信服务器的反馈，从而导致访问超时，而在之前阿里云上时。因为是外包那边部署的，后续我也没仔细看，他们没有设置安全组策略，所以一直能够正常访问。</description></item></channel></rss>

@@ -1,0 +1,206 @@
+<!doctype html><html lang=en>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta http-equiv=content-language content="en">
+<meta name=color-scheme content="light dark">
+<meta name=author content="Night">
+<meta name=description content="教程理论上适用于任何CentOS7.*系统
+tips：步骤2适用于国内用户
+1.CentOS安装初始化    安装工具查看ip
+yum install net-tools -y 查看ip并使用xshell等工具连接Centos
+ifconfig -a vi /etc/ssh/sshd_config 修改以下内容，将前面的#号去掉即可(按i进入编辑模式，按esc然后输入:wq保存并退出)
+ Port 22
+ListenAddress 0.0.0.0
+ListenAddress ::
+ermitEmptyPasswords no
+PasswordAuthentication yes
+ 重启ssh服务
+systemctl restart sshd.service 设置ssh开机启动
+systemctl enable sshd.service ssh端口放开防火墙
+firewall-cmd --permanent --zone=public --add-port=22/tcp 重载防火墙配置
+firewall-cmd --reload 安装wget
+yum install wget -y 2.国内源配置(国外用户可忽略此步骤)    mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo 缓存源
+yum makecache 国内源配置完毕">
+<meta name=keywords content="blog,developer,personal">
+<meta name=twitter:card content="summary">
+<meta name=twitter:title content="CentOS7.4 安装配置流程">
+<meta name=twitter:description content="教程理论上适用于任何CentOS7.*系统
+tips：步骤2适用于国内用户
+1.CentOS安装初始化    安装工具查看ip
+yum install net-tools -y 查看ip并使用xshell等工具连接Centos
+ifconfig -a vi /etc/ssh/sshd_config 修改以下内容，将前面的#号去掉即可(按i进入编辑模式，按esc然后输入:wq保存并退出)
+ Port 22
+ListenAddress 0.0.0.0
+ListenAddress ::
+ermitEmptyPasswords no
+PasswordAuthentication yes
+ 重启ssh服务
+systemctl restart sshd.service 设置ssh开机启动
+systemctl enable sshd.service ssh端口放开防火墙
+firewall-cmd --permanent --zone=public --add-port=22/tcp 重载防火墙配置
+firewall-cmd --reload 安装wget
+yum install wget -y 2.国内源配置(国外用户可忽略此步骤)    mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo 缓存源
+yum makecache 国内源配置完毕">
+<meta property="og:title" content="CentOS7.4 安装配置流程">
+<meta property="og:description" content="教程理论上适用于任何CentOS7.*系统
+tips：步骤2适用于国内用户
+1.CentOS安装初始化    安装工具查看ip
+yum install net-tools -y 查看ip并使用xshell等工具连接Centos
+ifconfig -a vi /etc/ssh/sshd_config 修改以下内容，将前面的#号去掉即可(按i进入编辑模式，按esc然后输入:wq保存并退出)
+ Port 22
+ListenAddress 0.0.0.0
+ListenAddress ::
+ermitEmptyPasswords no
+PasswordAuthentication yes
+ 重启ssh服务
+systemctl restart sshd.service 设置ssh开机启动
+systemctl enable sshd.service ssh端口放开防火墙
+firewall-cmd --permanent --zone=public --add-port=22/tcp 重载防火墙配置
+firewall-cmd --reload 安装wget
+yum install wget -y 2.国内源配置(国外用户可忽略此步骤)    mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo 缓存源
+yum makecache 国内源配置完毕">
+<meta property="og:type" content="article">
+<meta property="og:url" content="/2018/02/2018-02-02-centos7-4-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E6%B5%81%E7%A8%8B/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2018-02-02T02:21:11+00:00">
+<meta property="article:modified_time" content="2018-02-02T02:21:11+00:00">
+<title>
+CentOS7.4 安装配置流程 · NoesBlog
+</title>
+<link rel=canonical href=/2018/02/2018-02-02-centos7-4-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E6%B5%81%E7%A8%8B/>
+<link rel=preload href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as=font type=font/woff2 crossorigin>
+<link rel=stylesheet href=/css/coder.min.d9fddbffe6f27e69985dc5fe0471cdb0e57fbf4775714bc3d847accb08f4a1f6.css integrity="sha256-2f3b/+byfmmYXcX+BHHNsOV/v0d1cUvD2Eesywj0ofY=" crossorigin=anonymous media=screen>
+<link rel=stylesheet href=/css/coder-dark.min.002ee2378e14c7a68f1f0a53d9694ed252090987c4e768023fac694a4fc5f793.css integrity="sha256-AC7iN44Ux6aPHwpT2WlO0lIJCYfE52gCP6xpSk/F95M=" crossorigin=anonymous media=screen>
+<link rel=icon type=image/png href=/images/favicon-32x32.png sizes=32x32>
+<link rel=icon type=image/png href=/images/favicon-16x16.png sizes=16x16>
+<link rel=apple-touch-icon href=/images/apple-touch-icon.png>
+<link rel=apple-touch-icon sizes=180x180 href=/images/apple-touch-icon.png>
+<meta name=generator content="Hugo 0.91.2">
+</head>
+<body class="preload-transitions colorscheme-auto">
+<div class=float-container>
+<a id=dark-mode-toggle class=colorscheme-toggle>
+<i class="fa fa-adjust fa-fw" aria-hidden=true></i>
+</a>
+</div>
+<main class=wrapper>
+<nav class=navigation>
+<section class=container>
+<a class=navigation-title href=/>
+NoesBlog
+</a>
+<input type=checkbox id=menu-toggle>
+<label class="menu-button float-right" for=menu-toggle>
+<i class="fa fa-bars fa-fw" aria-hidden=true></i>
+</label>
+<ul class=navigation-list>
+<li class=navigation-item>
+<a class=navigation-link href=/posts/>博客</a>
+</li>
+<li class=navigation-item>
+<a class=navigation-link href=/tags/>标签</a>
+</li>
+<li class=navigation-item>
+<a class=navigation-link href=/about/>关于</a>
+</li>
+</ul>
+</section>
+</nav>
+<div class=content>
+<section class="container post">
+<article>
+<header>
+<div class=post-title>
+<h1 class=title>
+<a class=title-link href=/2018/02/2018-02-02-centos7-4-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E6%B5%81%E7%A8%8B/>
+CentOS7.4 安装配置流程
+</a>
+</h1>
+</div>
+<div class=post-meta>
+<div class=date>
+<span class=posted-on>
+<i class="fa fa-calendar" aria-hidden=true></i>
+<time datetime=2018-02-02T02:21:11Z>
+2018/02/02 02:21
+</time>
+</span>
+<span class=reading-time>
+<i class="fa fa-clock-o" aria-hidden=true></i>
+One-minute read
+</span>
+</div>
+<div class=authors>
+<i class="fa fa-user" aria-hidden=true></i>
+<a href=/authors/night/>Night</a></div>
+<div class=tags>
+<i class="fa fa-tag" aria-hidden=true></i>
+<span class=tag>
+<a href=/tags/centos/>CentOS</a>
+</span></div>
+</div>
+</header>
+<div>
+<p>教程理论上适用于任何CentOS7.*系统</p>
+<p>tips：步骤2适用于国内用户</p>
+<h1 id=1centos安装初始化>
+1.CentOS安装初始化
+<a class=heading-link href=#1centos%e5%ae%89%e8%a3%85%e5%88%9d%e5%a7%8b%e5%8c%96>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h1>
+<p>安装工具查看ip</p>
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>yum install net-tools -y
+</code></pre></div><p>查看ip并使用xshell等工具连接Centos</p>
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>ifconfig -a
+</code></pre></div><div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>vi /etc/ssh/sshd_config
+</code></pre></div><p>修改以下内容，将前面的#号去掉即可(按i进入编辑模式，按esc然后输入:wq保存并退出)</p>
+<blockquote>
+<p>Port 22<br>
+ListenAddress 0.0.0.0<br>
+ListenAddress ::<br>
+ermitEmptyPasswords no<br>
+PasswordAuthentication yes</p>
+</blockquote>
+<p>重启ssh服务</p>
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>systemctl restart sshd.service
+</code></pre></div><p>设置ssh开机启动</p>
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>systemctl enable sshd.service
+</code></pre></div><p>ssh端口放开防火墙</p>
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>firewall-cmd --permanent --zone=public --add-port=22/tcp
+</code></pre></div><p>重载防火墙配置</p>
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>firewall-cmd --reload
+</code></pre></div><p>安装wget</p>
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>yum install wget -y
+</code></pre></div><h1 id=2国内源配置国外用户可忽略此步骤>
+2.国内源配置(国外用户可忽略此步骤)
+<a class=heading-link href=#2%e5%9b%bd%e5%86%85%e6%ba%90%e9%85%8d%e7%bd%ae%e5%9b%bd%e5%a4%96%e7%94%a8%e6%88%b7%e5%8f%af%e5%bf%bd%e7%95%a5%e6%ad%a4%e6%ad%a5%e9%aa%a4>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h1>
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup
+</code></pre></div><div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
+</code></pre></div><p>缓存源</p>
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>yum makecache
+</code></pre></div><p>国内源配置完毕</p>
+</div>
+<footer>
+<script src=https://utteranc.es/client.js repo=night2049/night2049.github.io issue-term=url label=comment theme=github-light crossorigin=anonymous async></script>
+</footer>
+</article>
+</section>
+</div>
+<footer class=footer>
+<section class=container>
+©
+2017 -
+2021
+Night
+·
+Powered by <a href=https://gohugo.io/>Hugo</a> & <a href=https://github.com/luizdepra/hugo-coder/>Coder</a>.
+</section>
+</footer>
+</main>
+<script src=/js/coder.min.03b17769f4f91ae35667e1f2a1ca8c16f50562576cf90ff32b3179926914daa5.js integrity="sha256-A7F3afT5GuNWZ+HyocqMFvUFYlds+Q/zKzF5kmkU2qU="></script>
+</body>
+</html>

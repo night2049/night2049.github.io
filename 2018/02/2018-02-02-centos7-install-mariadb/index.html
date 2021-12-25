@@ -1,0 +1,226 @@
+<!doctype html><html lang=en>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta http-equiv=content-language content="en">
+<meta name=color-scheme content="light dark">
+<meta name=author content="Night">
+<meta name=description content="安装    yum -y install mariadb mariadb-server 启动MariaDB
+systemctl start mariadb 设置开机启动
+systemctl enable mariadb MariaDB快速配置
+mysql_secure_installation  设置密码，此处回车即可
+Enter current password for root (enter for none):
+是否设置root用户密码，输入y并回车或直接回车
+Set root password? [Y/n]
+其他配置匿名用户
+Remove anonymous users? [Y/n]
+root远程登录
+Disallow root login remotely? [Y/n]
+是否删除test数据库
+Remove test database and access to it? [Y/n]
+是否重新加载权限表
+Reload privilege tables now? [Y/n]
+ 登录MariaDB
+mysql -u root -p password 配置MariaDB的字符集
+vi /etc/my.cnf">
+<meta name=keywords content="blog,developer,personal">
+<meta name=twitter:card content="summary">
+<meta name=twitter:title content="CentOS7 install MariaDB">
+<meta name=twitter:description content="安装    yum -y install mariadb mariadb-server 启动MariaDB
+systemctl start mariadb 设置开机启动
+systemctl enable mariadb MariaDB快速配置
+mysql_secure_installation  设置密码，此处回车即可
+Enter current password for root (enter for none):
+是否设置root用户密码，输入y并回车或直接回车
+Set root password? [Y/n]
+其他配置匿名用户
+Remove anonymous users? [Y/n]
+root远程登录
+Disallow root login remotely? [Y/n]
+是否删除test数据库
+Remove test database and access to it? [Y/n]
+是否重新加载权限表
+Reload privilege tables now? [Y/n]
+ 登录MariaDB
+mysql -u root -p password 配置MariaDB的字符集
+vi /etc/my.cnf">
+<meta property="og:title" content="CentOS7 install MariaDB">
+<meta property="og:description" content="安装    yum -y install mariadb mariadb-server 启动MariaDB
+systemctl start mariadb 设置开机启动
+systemctl enable mariadb MariaDB快速配置
+mysql_secure_installation  设置密码，此处回车即可
+Enter current password for root (enter for none):
+是否设置root用户密码，输入y并回车或直接回车
+Set root password? [Y/n]
+其他配置匿名用户
+Remove anonymous users? [Y/n]
+root远程登录
+Disallow root login remotely? [Y/n]
+是否删除test数据库
+Remove test database and access to it? [Y/n]
+是否重新加载权限表
+Reload privilege tables now? [Y/n]
+ 登录MariaDB
+mysql -u root -p password 配置MariaDB的字符集
+vi /etc/my.cnf">
+<meta property="og:type" content="article">
+<meta property="og:url" content="/2018/02/2018-02-02-centos7-install-mariadb/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2018-02-02T02:36:55+00:00">
+<meta property="article:modified_time" content="2018-02-02T02:36:55+00:00">
+<title>
+CentOS7 install MariaDB · NoesBlog
+</title>
+<link rel=canonical href=/2018/02/2018-02-02-centos7-install-mariadb/>
+<link rel=preload href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as=font type=font/woff2 crossorigin>
+<link rel=stylesheet href=/css/coder.min.d9fddbffe6f27e69985dc5fe0471cdb0e57fbf4775714bc3d847accb08f4a1f6.css integrity="sha256-2f3b/+byfmmYXcX+BHHNsOV/v0d1cUvD2Eesywj0ofY=" crossorigin=anonymous media=screen>
+<link rel=stylesheet href=/css/coder-dark.min.002ee2378e14c7a68f1f0a53d9694ed252090987c4e768023fac694a4fc5f793.css integrity="sha256-AC7iN44Ux6aPHwpT2WlO0lIJCYfE52gCP6xpSk/F95M=" crossorigin=anonymous media=screen>
+<link rel=icon type=image/png href=/images/favicon-32x32.png sizes=32x32>
+<link rel=icon type=image/png href=/images/favicon-16x16.png sizes=16x16>
+<link rel=apple-touch-icon href=/images/apple-touch-icon.png>
+<link rel=apple-touch-icon sizes=180x180 href=/images/apple-touch-icon.png>
+<meta name=generator content="Hugo 0.91.2">
+</head>
+<body class="preload-transitions colorscheme-auto">
+<div class=float-container>
+<a id=dark-mode-toggle class=colorscheme-toggle>
+<i class="fa fa-adjust fa-fw" aria-hidden=true></i>
+</a>
+</div>
+<main class=wrapper>
+<nav class=navigation>
+<section class=container>
+<a class=navigation-title href=/>
+NoesBlog
+</a>
+<input type=checkbox id=menu-toggle>
+<label class="menu-button float-right" for=menu-toggle>
+<i class="fa fa-bars fa-fw" aria-hidden=true></i>
+</label>
+<ul class=navigation-list>
+<li class=navigation-item>
+<a class=navigation-link href=/posts/>博客</a>
+</li>
+<li class=navigation-item>
+<a class=navigation-link href=/tags/>标签</a>
+</li>
+<li class=navigation-item>
+<a class=navigation-link href=/about/>关于</a>
+</li>
+</ul>
+</section>
+</nav>
+<div class=content>
+<section class="container post">
+<article>
+<header>
+<div class=post-title>
+<h1 class=title>
+<a class=title-link href=/2018/02/2018-02-02-centos7-install-mariadb/>
+CentOS7 install MariaDB
+</a>
+</h1>
+</div>
+<div class=post-meta>
+<div class=date>
+<span class=posted-on>
+<i class="fa fa-calendar" aria-hidden=true></i>
+<time datetime=2018-02-02T02:36:55Z>
+2018/02/02 02:36
+</time>
+</span>
+<span class=reading-time>
+<i class="fa fa-clock-o" aria-hidden=true></i>
+One-minute read
+</span>
+</div>
+<div class=authors>
+<i class="fa fa-user" aria-hidden=true></i>
+<a href=/authors/night/>Night</a></div>
+<div class=tags>
+<i class="fa fa-tag" aria-hidden=true></i>
+<span class=tag>
+<a href=/tags/centos7/>CentOS7</a>
+</span>
+<span class=separator>•</span>
+<span class=tag>
+<a href=/tags/mariadb/>MariaDB</a>
+</span></div>
+</div>
+</header>
+<div>
+<h1 id=安装>
+安装
+<a class=heading-link href=#%e5%ae%89%e8%a3%85>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h1>
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>yum -y install mariadb mariadb-server
+</code></pre></div><p>启动MariaDB</p>
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>systemctl start mariadb
+</code></pre></div><p>设置开机启动</p>
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>systemctl enable mariadb
+</code></pre></div><p>MariaDB快速配置</p>
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>mysql_secure_installation
+</code></pre></div><blockquote>
+<p>设置密码，此处回车即可<br>
+Enter current password for root (enter for none):</p>
+<p>是否设置root用户密码，输入y并回车或直接回车<br>
+Set root password? [Y/n]</p>
+<p>其他配置匿名用户<br>
+Remove anonymous users? [Y/n]</p>
+<p>root远程登录<br>
+Disallow root login remotely? [Y/n]</p>
+<p>是否删除test数据库<br>
+Remove test database and access to it? [Y/n]</p>
+<p>是否重新加载权限表<br>
+Reload privilege tables now? [Y/n]</p>
+</blockquote>
+<p>登录MariaDB</p>
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>mysql -u root -p password
+</code></pre></div><p>配置MariaDB的字符集<br>
+vi /etc/my.cnf<br>
+在[mysqld]标签下添加</p>
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>init_connect=&#39;SET collation_connection = utf8_unicode_ci&#39; 
+init_connect=&#39;SET NAMES utf8&#39; 
+character-set-server=utf8 
+collation-server=utf8_unicode_ci 
+skip-character-set-client-handshake
+vi /etc/my.cnf.d/client.cnf
+</code></pre></div><p>在[client]中添加</p>
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>default-character-set=utf8
+vi /etc/my.cnf.d/mysql-clients.cnf
+</code></pre></div><p>在[mysql]中添加</p>
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>default-character-set=utf8
+</code></pre></div><p>全部配置完成，重启mariadb</p>
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>systemctl restart mariadb
+</code></pre></div><h2 id=配置root用户远程登陆谨慎使用>
+配置root用户远程登陆(谨慎使用)
+<a class=heading-link href=#%e9%85%8d%e7%bd%aeroot%e7%94%a8%e6%88%b7%e8%bf%9c%e7%a8%8b%e7%99%bb%e9%99%86%e8%b0%a8%e6%85%8e%e4%bd%bf%e7%94%a8>
+<i class="fa fa-link" aria-hidden=true></i>
+</a>
+</h2>
+<p>登陆mariaDB后执行</p>
+<div class=highlight><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>update user set host=&#39;%&#39; where host=&#39;127.0.0.1&#39;;
+flush privileges;
+</code></pre></div><p>若无法进行外部连接则请在防火墙添加3306端口即可</p>
+</div>
+<footer>
+<script src=https://utteranc.es/client.js repo=night2049/night2049.github.io issue-term=url label=comment theme=github-light crossorigin=anonymous async></script>
+</footer>
+</article>
+</section>
+</div>
+<footer class=footer>
+<section class=container>
+©
+2017 -
+2021
+Night
+·
+Powered by <a href=https://gohugo.io/>Hugo</a> & <a href=https://github.com/luizdepra/hugo-coder/>Coder</a>.
+</section>
+</footer>
+</main>
+<script src=/js/coder.min.03b17769f4f91ae35667e1f2a1ca8c16f50562576cf90ff32b3179926914daa5.js integrity="sha256-A7F3afT5GuNWZ+HyocqMFvUFYlds+Q/zKzF5kmkU2qU="></script>
+</body>
+</html>

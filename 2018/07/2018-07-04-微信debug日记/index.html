@@ -1,0 +1,137 @@
+<!doctype html><html lang=en>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta http-equiv=content-language content="en">
+<meta name=color-scheme content="light dark">
+<meta name=author content="Night">
+<meta name=description content="最近接到反馈，公司线上的某微信服务号网页打开特别慢，遂测试，发现确实很慢。
+由于该项目之前是外包开发的，后续我维护的时候也仅对维护的功能加了日志，因此线上不能很好的发现问题。
+首先在本地起了一个服务，然后开始测试，刚开始没什么问题，几次之后也出现了线上的问题，出现微信获取access token超时，但是这个异常在服务器上的日志并没有发现，于是先解决这个问题，经过加日志，打断点等一系列操作，解决完毕后打包到线上仍然有问题，本地测试没有问题，经过在服务器上的一系列排查，包括dns， ping测试，等等，对微信服务器的访问都没有问题。
+最终发工单到腾讯云，因为之前在阿里云上没有这个问题，所以想看是不是服务器出了什么问题。
+经过腾讯云工程师的测试，发现没有问题，不过他建议我将服务器的安全组对外策略为全开，设置安全组策略为0.0.0.0/0 ALL 后，测试正常。
+突然想起这个是在计算机网络中有说过，对外访问时会随机选择一个端口对外访问，而微信文档中则是说仅在80端口生效，因此当初排查的时候没有考虑到访问微信服务器获取openid时会使用其他端口，因此服务器安全组出站策略设置的比较严格，仅保留了80端口和ssh端口，所以导致了微信服务号网页授权特别慢的问题，因为每次应用访问微信服务器获取用户openid时，都无法接收到微信服务器的反馈，从而导致访问超时，而在之前阿里云上时。因为是外包那边部署的，后续我也没仔细看，他们没有设置安全组策略，所以一直能够正常访问。">
+<meta name=keywords content="blog,developer,personal">
+<meta name=twitter:card content="summary">
+<meta name=twitter:title content="微信Debug日记">
+<meta name=twitter:description content="最近接到反馈，公司线上的某微信服务号网页打开特别慢，遂测试，发现确实很慢。
+由于该项目之前是外包开发的，后续我维护的时候也仅对维护的功能加了日志，因此线上不能很好的发现问题。
+首先在本地起了一个服务，然后开始测试，刚开始没什么问题，几次之后也出现了线上的问题，出现微信获取access token超时，但是这个异常在服务器上的日志并没有发现，于是先解决这个问题，经过加日志，打断点等一系列操作，解决完毕后打包到线上仍然有问题，本地测试没有问题，经过在服务器上的一系列排查，包括dns， ping测试，等等，对微信服务器的访问都没有问题。
+最终发工单到腾讯云，因为之前在阿里云上没有这个问题，所以想看是不是服务器出了什么问题。
+经过腾讯云工程师的测试，发现没有问题，不过他建议我将服务器的安全组对外策略为全开，设置安全组策略为0.0.0.0/0 ALL 后，测试正常。
+突然想起这个是在计算机网络中有说过，对外访问时会随机选择一个端口对外访问，而微信文档中则是说仅在80端口生效，因此当初排查的时候没有考虑到访问微信服务器获取openid时会使用其他端口，因此服务器安全组出站策略设置的比较严格，仅保留了80端口和ssh端口，所以导致了微信服务号网页授权特别慢的问题，因为每次应用访问微信服务器获取用户openid时，都无法接收到微信服务器的反馈，从而导致访问超时，而在之前阿里云上时。因为是外包那边部署的，后续我也没仔细看，他们没有设置安全组策略，所以一直能够正常访问。">
+<meta property="og:title" content="微信Debug日记">
+<meta property="og:description" content="最近接到反馈，公司线上的某微信服务号网页打开特别慢，遂测试，发现确实很慢。
+由于该项目之前是外包开发的，后续我维护的时候也仅对维护的功能加了日志，因此线上不能很好的发现问题。
+首先在本地起了一个服务，然后开始测试，刚开始没什么问题，几次之后也出现了线上的问题，出现微信获取access token超时，但是这个异常在服务器上的日志并没有发现，于是先解决这个问题，经过加日志，打断点等一系列操作，解决完毕后打包到线上仍然有问题，本地测试没有问题，经过在服务器上的一系列排查，包括dns， ping测试，等等，对微信服务器的访问都没有问题。
+最终发工单到腾讯云，因为之前在阿里云上没有这个问题，所以想看是不是服务器出了什么问题。
+经过腾讯云工程师的测试，发现没有问题，不过他建议我将服务器的安全组对外策略为全开，设置安全组策略为0.0.0.0/0 ALL 后，测试正常。
+突然想起这个是在计算机网络中有说过，对外访问时会随机选择一个端口对外访问，而微信文档中则是说仅在80端口生效，因此当初排查的时候没有考虑到访问微信服务器获取openid时会使用其他端口，因此服务器安全组出站策略设置的比较严格，仅保留了80端口和ssh端口，所以导致了微信服务号网页授权特别慢的问题，因为每次应用访问微信服务器获取用户openid时，都无法接收到微信服务器的反馈，从而导致访问超时，而在之前阿里云上时。因为是外包那边部署的，后续我也没仔细看，他们没有设置安全组策略，所以一直能够正常访问。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="/2018/07/2018-07-04-%E5%BE%AE%E4%BF%A1debug%E6%97%A5%E8%AE%B0/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2018-07-04T13:49:05+00:00">
+<meta property="article:modified_time" content="2018-07-04T13:49:05+00:00">
+<title>
+微信Debug日记 · NoesBlog
+</title>
+<link rel=canonical href=/2018/07/2018-07-04-%E5%BE%AE%E4%BF%A1debug%E6%97%A5%E8%AE%B0/>
+<link rel=preload href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as=font type=font/woff2 crossorigin>
+<link rel=stylesheet href=/css/coder.min.d9fddbffe6f27e69985dc5fe0471cdb0e57fbf4775714bc3d847accb08f4a1f6.css integrity="sha256-2f3b/+byfmmYXcX+BHHNsOV/v0d1cUvD2Eesywj0ofY=" crossorigin=anonymous media=screen>
+<link rel=stylesheet href=/css/coder-dark.min.002ee2378e14c7a68f1f0a53d9694ed252090987c4e768023fac694a4fc5f793.css integrity="sha256-AC7iN44Ux6aPHwpT2WlO0lIJCYfE52gCP6xpSk/F95M=" crossorigin=anonymous media=screen>
+<link rel=icon type=image/png href=/images/favicon-32x32.png sizes=32x32>
+<link rel=icon type=image/png href=/images/favicon-16x16.png sizes=16x16>
+<link rel=apple-touch-icon href=/images/apple-touch-icon.png>
+<link rel=apple-touch-icon sizes=180x180 href=/images/apple-touch-icon.png>
+<meta name=generator content="Hugo 0.91.2">
+</head>
+<body class="preload-transitions colorscheme-auto">
+<div class=float-container>
+<a id=dark-mode-toggle class=colorscheme-toggle>
+<i class="fa fa-adjust fa-fw" aria-hidden=true></i>
+</a>
+</div>
+<main class=wrapper>
+<nav class=navigation>
+<section class=container>
+<a class=navigation-title href=/>
+NoesBlog
+</a>
+<input type=checkbox id=menu-toggle>
+<label class="menu-button float-right" for=menu-toggle>
+<i class="fa fa-bars fa-fw" aria-hidden=true></i>
+</label>
+<ul class=navigation-list>
+<li class=navigation-item>
+<a class=navigation-link href=/posts/>博客</a>
+</li>
+<li class=navigation-item>
+<a class=navigation-link href=/tags/>标签</a>
+</li>
+<li class=navigation-item>
+<a class=navigation-link href=/about/>关于</a>
+</li>
+</ul>
+</section>
+</nav>
+<div class=content>
+<section class="container post">
+<article>
+<header>
+<div class=post-title>
+<h1 class=title>
+<a class=title-link href=/2018/07/2018-07-04-%E5%BE%AE%E4%BF%A1debug%E6%97%A5%E8%AE%B0/>
+微信Debug日记
+</a>
+</h1>
+</div>
+<div class=post-meta>
+<div class=date>
+<span class=posted-on>
+<i class="fa fa-calendar" aria-hidden=true></i>
+<time datetime=2018-07-04T13:49:05Z>
+2018/07/04 13:49
+</time>
+</span>
+<span class=reading-time>
+<i class="fa fa-clock-o" aria-hidden=true></i>
+One-minute read
+</span>
+</div>
+<div class=authors>
+<i class="fa fa-user" aria-hidden=true></i>
+<a href=/authors/night/>Night</a></div>
+<div class=tags>
+<i class="fa fa-tag" aria-hidden=true></i>
+<span class=tag>
+<a href=/tags/debug/>Debug</a>
+</span></div>
+</div>
+</header>
+<div>
+<p>最近接到反馈，公司线上的某微信服务号网页打开特别慢，遂测试，发现确实很慢。</p>
+<p>由于该项目之前是外包开发的，后续我维护的时候也仅对维护的功能加了日志，因此线上不能很好的发现问题。</p>
+<p>首先在本地起了一个服务，然后开始测试，刚开始没什么问题，几次之后也出现了线上的问题，出现微信获取access token超时，但是这个异常在服务器上的日志并没有发现，于是先解决这个问题，经过加日志，打断点等一系列操作，解决完毕后打包到线上仍然有问题，本地测试没有问题，经过在服务器上的一系列排查，包括dns， ping测试，等等，对微信服务器的访问都没有问题。</p>
+<p>最终发工单到腾讯云，因为之前在阿里云上没有这个问题，所以想看是不是服务器出了什么问题。</p>
+<p>经过腾讯云工程师的测试，发现没有问题，不过他建议我将服务器的安全组对外策略为全开，设置安全组策略为0.0.0.0/0 ALL 后，测试正常。</p>
+<p>突然想起这个是在计算机网络中有说过，对外访问时会随机选择一个端口对外访问，而微信文档中则是说仅在80端口生效，因此当初排查的时候没有考虑到访问微信服务器获取openid时会使用其他端口，因此服务器安全组出站策略设置的比较严格，仅保留了80端口和ssh端口，所以导致了微信服务号网页授权特别慢的问题，因为每次应用访问微信服务器获取用户openid时，都无法接收到微信服务器的反馈，从而导致访问超时，而在之前阿里云上时。因为是外包那边部署的，后续我也没仔细看，他们没有设置安全组策略，所以一直能够正常访问。</p>
+</div>
+<footer>
+<script src=https://utteranc.es/client.js repo=night2049/night2049.github.io issue-term=url label=comment theme=github-light crossorigin=anonymous async></script>
+</footer>
+</article>
+</section>
+</div>
+<footer class=footer>
+<section class=container>
+©
+2017 -
+2021
+Night
+·
+Powered by <a href=https://gohugo.io/>Hugo</a> & <a href=https://github.com/luizdepra/hugo-coder/>Coder</a>.
+</section>
+</footer>
+</main>
+<script src=/js/coder.min.03b17769f4f91ae35667e1f2a1ca8c16f50562576cf90ff32b3179926914daa5.js integrity="sha256-A7F3afT5GuNWZ+HyocqMFvUFYlds+Q/zKzF5kmkU2qU="></script>
+</body>
+</html>

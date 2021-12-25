@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Linux on NoesBlog</title><link>/tags/linux/</link><description>Recent content in Linux on NoesBlog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 24 Jan 2018 17:33:13 +0000</lastBuildDate><atom:link href="/tags/linux/index.xml" rel="self" type="application/rss+xml"/><item><title>firewalld防火墙基本操作</title><link>/2018/01/2018-01-25-%E8%BD%AC%E8%BD%BDfirewalld%E9%98%B2%E7%81%AB%E5%A2%99%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/</link><pubDate>Wed, 24 Jan 2018 17:33:13 +0000</pubDate><guid>/2018/01/2018-01-25-%E8%BD%AC%E8%BD%BDfirewalld%E9%98%B2%E7%81%AB%E5%A2%99%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/</guid><description>firewalld是Centos7的默认防火墙，在我们使用centos中关于防火墙的操作需要经常使用，下面可以看到firewalld防火墙的基本操作。
+启动： systemctl start firewalld
+查看状态： systemctl status firewalld
+停止： systemctl disable firewalld
+禁用： systemctl stop firewalld
+启动firewalld服务：systemctl start firewalld.service
+关闭firewalld服务：systemctl stop firewalld.service
+重启firewalld服务：systemctl restart firewalld.service
+显示firewalld服务的状态：systemctl status firewalld.service
+在开机时启用firewalld服务：systemctl enable firewalld.service
+在开机时禁用firewalld服务：systemctl disable firewalld.service
+查看firewalld是否开机启动：systemctl is-enabled firewalld.service
+查看已启动的服务列表：systemctl list-unit-files|grep enabled
+查看启动失败的服务列表：systemctl --failed
+查看firewalld版本： firewall-cmd --version
+查看firewalld帮助： firewall-cmd --help
+显示firewalld状态： firewall-cmd --state
+查看firewalld打开的端口： firewall-cmd --zone=public--list-ports
+更新firewalld防火墙规则： firewall-cmd --reload
+查看firewalld区域信息: firewall-cmd --get-active-zones
+查看firewalld指定接口所属区域： firewall-cmd --get-zone-of-interface=eth0
+firewalld拒绝所有包：firewall-cmd --panic-on
+firewalld取消拒绝状态： firewall-cmd --panic-off
+firewalld查看是否拒绝： firewall-cmd --query-panic</description></item><item><title>centos7配置开启网络</title><link>/2018/01/2018-01-25-centos7%E9%85%8D%E7%BD%AE%E5%BC%80%E5%90%AF%E7%BD%91%E7%BB%9C/</link><pubDate>Wed, 24 Jan 2018 17:31:46 +0000</pubDate><guid>/2018/01/2018-01-25-centos7%E9%85%8D%E7%BD%AE%E5%BC%80%E5%90%AF%E7%BD%91%E7%BB%9C/</guid><description>cd /etc/sysconfig/network-scripts/
+使用
+ls
+会显示该目录下的所有文件，找到以ifcfg开头的第一个文件
+vi ifcfg-XXX
+上方命令的xxx对应每个人的机器不一样，自己找一下对应格式的文件即可
+执行上方命令后，会打开编辑器，移动光标到最后一行,按i进入编辑模式
+ONBOOT=NO
+修改为
+ONBOOT=yes
+按esc键后输入
+:wq
+保存该文件后执行以下命令
+service network restart
+即可正常使用网络</description></item></channel></rss>
