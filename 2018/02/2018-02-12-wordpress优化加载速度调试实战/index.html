@@ -8,9 +8,6 @@
     <meta name="color-scheme" content="light dark">
 
     
-      <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests; block-all-mixed-content; default-src 'self'; child-src 'self'; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net/; form-action 'self'; frame-src 'self'; img-src 'self'; object-src 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/ https://cdn.jsdelivr.net/ https://utteranc.es; script-src 'self' 'unsafe-inline' https://www.google-analytics.com https://utteranc.es; prefetch-src 'self'; connect-src 'self' https://www.google-analytics.com https://utteranc.es;">
-
-    
 
     <meta name="author" content="Night">
     <meta name="description" content="在没有调试之前，几乎所有的 js，css 文件都是从 cdn 上面加载的，请求数在 25 到 30 之间，有时候可能 cdn 加载问题会导致页面重新渲染，因此将小的 js，css 文件使用源站加载，用了 Autoptimize 合并了这些文件，目前请求数在 7 个左右，减少了页面发送请求的数量，也避免了某个文件没有加载完成导致的页面加载过慢的问题。
@@ -198,7 +195,7 @@ js，css 文件合并，大小在 20kb 以内的 js，css 文件压缩到一个�
         
         
         <script src="https://utteranc.es/client.js"
-    repo= "https://github.com/night2049/night2049.github.io"
+    repo= "night2049/night2049.github.io"
     issue-term="url"
     label="comment"
     theme="github-light"
