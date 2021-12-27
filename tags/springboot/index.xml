@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SpringBoot on NoesBlog</title><link>/tags/springboot/</link><description>Recent content in SpringBoot on NoesBlog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sat, 25 Dec 2021 22:06:13 +0800</lastBuildDate><atom:link href="/tags/springboot/index.xml" rel="self" type="application/rss+xml"/><item><title>Jenkins Docker实现SpringBoot自动化发布</title><link>/2021/12/jenkinsdocker%E5%AE%9E%E7%8E%B0springboot%E8%87%AA%E5%8A%A8%E5%8C%96%E5%8F%91%E5%B8%83/</link><pubDate>Sat, 25 Dec 2021 22:06:13 +0800</pubDate><guid>/2021/12/jenkinsdocker%E5%AE%9E%E7%8E%B0springboot%E8%87%AA%E5%8A%A8%E5%8C%96%E5%8F%91%E5%B8%83/</guid><description>前置条件
+安装Docker及Docker Compose 安装Jenkins 新建jenkins文件夹，并添加docker-compose.yml文件
+在文件中添加以下内容
+version: &amp;#34;3.9&amp;#34; volumes: jenkins_data: { } services: jenkins: image: jenkinsci/blueocean container_name: Jenkins restart: always environment: - TZ=Asia/Shanghai //中国时区 ports: - &amp;#34;8080:8080&amp;#34; // 左边是外部端口 volumes: - jenkins_data:/var/jenkins_home - /var/run/docker.sock:/var/run/docker.sock 在当前文件夹下执行以下命令
+// 启动jenkins服务 docker-compose up -d // 授权任意用户可访问docker sudo chmod 777 /var/run/docker.sock 等待启动完成后，执行以下命令查看密码
+docker logs -f Jenkins 图上红色标注即为Jenkins密码
+访问服务器ip:8080，进入jenkins，这里我是本机起的服务，直接访问http://127.0.0.1:8080/即可
+输入上面红色的管理员密码
+点击选择插件来安装
+勾选以下插件即可
+Folders Plugin Build Timeout Config File Provider Credentials Binding Plugin Timestamper Workspace Cleanup Git plugin Git Parameter SSH Build Agents Matrix Authorization Strategy Plugin Localization: Chinese (Simplified) 点击安装，等待安装完成</description></item></channel></rss>
