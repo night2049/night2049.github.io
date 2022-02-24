@@ -1,4 +1,33 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on NoesBlog</title><link>/posts/</link><description>Recent content in Posts on NoesBlog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Tue, 04 Jan 2022 16:10:25 +0000</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>快速删除阿里云OSS内文件</title><link>/2022/01/%E5%BF%AB%E9%80%9F%E5%88%A0%E9%99%A4%E9%98%BF%E9%87%8C%E4%BA%91oss%E5%86%85%E6%96%87%E4%BB%B6/</link><pubDate>Tue, 04 Jan 2022 16:10:25 +0000</pubDate><guid>/2022/01/%E5%BF%AB%E9%80%9F%E5%88%A0%E9%99%A4%E9%98%BF%E9%87%8C%E4%BA%91oss%E5%86%85%E6%96%87%E4%BB%B6/</guid><description>最近要把OSS里的文件清空一下，控制台操作属实是又卡又慢，无奈还是得代码操作
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on NoesBlog</title><link>/posts/</link><description>Recent content in Posts on NoesBlog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 24 Feb 2022 21:10:25 +0000</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>2021年度阅读报告</title><link>/2022/02/2021%E5%B9%B4%E5%BA%A6%E9%98%85%E8%AF%BB%E6%8A%A5%E5%91%8A/</link><pubDate>Thu, 24 Feb 2022 21:10:25 +0000</pubDate><guid>/2022/02/2021%E5%B9%B4%E5%BA%A6%E9%98%85%E8%AF%BB%E6%8A%A5%E5%91%8A/</guid><description>2021年或许是自工作以来成长最快的一年，也是压力最大的一年
+这一年头发倒是白了不少，好在进步不少，其中阅读带给我的影响更胜
+1. 凤凰项目-一个IT运维的传奇 偶然间在知乎还是v2ex上看到这本书的推荐，下载下来之后随便读了几页，感觉写的挺有意思，便花了两天的时间读完，这本书本身倒并不包含与技术相关的内容。
+其中学到的更多的是职场的相处之道，本书简单来说就是作者以一种写小说的形式，介绍了主人公作为一个普通的运维经理，在企业即将倒闭之际，接手凤凰项目，经历一系列事件之后，带领企业走向成功的故事。
+在这本书中，更多的是学习到如何在职场上发挥自己的影响力，以及如何将混乱的常态，经过一系列的手段不断优化，使之变得有序起来，整本书读下来，更多的感触则是主人公的境遇似乎和大多数开发人员亦或者是IT技术人员一样，企业中混乱的部门，各个部门的需求既紧急又迫切，传统且脆弱的系统架构，以及一个又一个的救火时刻，深深的戳中了我的心
+主人公在一名外聘的大佬带领下，学习了传统工厂的流水化作业流程，并结合IT行业的现状，进行了一系列的改进，中途自然也少不了上级领导的遗弃，团队成员的不信任，经过一系列的故事后，走向了完美的结局
+其实很多时候我也在思考，虽然软件行业并不像传统工业或者是建筑业一般“硬”，为何在经过一系列迭代后，系统会变得如此脆弱，团队虽然可能在不断扩张，但可能带来了更多的问题。在这本书中学习到了一系列拆解业务，与业务方合作，同时最重要的是，确立各部门的诉求与实际战略需求，并基于IT技术达成此目标，而非混乱的需求方，以及频频上火的开发人员，通过一系列的角色互换，更多的理解了IT部门在企业中所承担的角色，这本书虽然历史悠久，其中的道理在如今却依旧成立。
+在大多数企业而已，研发部门是成本部门，只花钱，不进帐。而如果想在此行业有所成就的话，其实可能更多的需要去思考自己及部门的定位，以及如何基于IT技术来为其他部门增效，同时一定要沟通好各个业务方的诉求。为公司以及团队达成最佳效果。
+而同时，在大多数企业，研发部门往往没有话语权，业务部门给客户许下不切实际的承诺，研发部门加班救火，然后持续不断的进入这个死循环，最终走向倒闭或苟活，或许作为团队的一员，需要更多的思考如何改善此类问题，以避免所有人都在埋头奔跑，却没有人抬起头来看看方向是否错了，是否所努力的内容是客户真正想要的，这或许是每个人都该思考的问题，而不是固定自己的职位，前端工程师，亦或者后端工程师
+2. 人月神话 从大学起，便常常在各类技术网站上看到有人推荐这本书，而直到自己开始负责一个团队时，才觉得到处都是问题，人真的只是一种资源吗？
+工作亦有五年之久了，之前往往更多的阅读技术类书籍，对此类书籍往往嗤之以鼻，觉得没什么太大的作用，直到自己开始搭建团队并负责一个完整的业务时，才转过头来想看看先辈们是否有好的解决方案
+这本书中最著名的莫过于人数和产出的计算，通常而言认为，当项目延期时，往项目中添加人力可以减少延期，而实质上随着人数的追加，项目的完成也就变的更加遥遥无期，这其中便是增加的人数所带来的负面作用，即沟通成本
+当团队人数小于五人时，任何问题都可以快速解决，而大于此人数时，沟通的成本往往不断提高，而在延期的项目中，追加的人力往往需要一段时间的适应期，原有的人力也需要分出一部分来培养新加入的成员，因此就演变成了所谓的：“水多加面，面多加水”，最后一地鸡毛
+这本书同时也有一个很有意思的观点，即大多数项目很少准时发布，通常是由于未曾想到的技术难点，亦或者是与原有需求冲突，亦或者是其他的各方面原因，而针对这些在项目过程中常见的问题，其实更多的需要前期筹划，即书中所说的：
+需求调研1/3，需求设计1/3，编码1/6，集成测试1/6
+可以看到的是，需求调研与设计占用了大多数时间，而编码只占用了其中的极少数时间
+而国内技术团队遇到的大多数问题是，需求调研与设计时间几乎为0，需求的来源大多数是客户或老板或产品经理拍脑袋决定，然后要求快速迭代开发上线，然后不断的重复此过程，美名曰：快速试错，或是拥抱变化
+而从未去思考整体的竞争力，导致了大多数研发团队所做的工作几乎无效，这也导致了上一本书的问题，研发团队的工作浪费，使其变成了“成本部门”，而非企业的“增速剂”
+3. 局外人 大抵我也是一个局外人，与作者笔下的悲剧人物一般。既无情，也有着自我的觉悟
+4. 华为成长之路：影响华为的22个关键 作为国内民营企业的优秀典范，华为的成长之路倒显得极为有趣，从最开始的“倒爷”，到后面的高研发投入摇身一变为“高科技研发代表型企业”，这中间的故事我不可谓不感兴趣
+读完整本书，感慨最多的倒不是任正非的长期眼光，更多的是对于其战略能力感到惊讶，重视人才的投入，与目前主流的“人口红利型企业”对比起来，倒也能理解为什么是华为做到NO.1
+当然由于历史进程的缘故，华为也仍旧摆脱不了“人口红利型企业”的毛病，近年来常听到华为的“996”，与“狼性精神”，这其实并不奇怪，华为依旧过于年轻，换而言之整个中国也太过年轻，新中国成立也未过百年，却花了几十年的时间走完了资本主义国家数百年的进程，因此有此类瑕疵，倒也不奇怪。
+当然了，似乎大多数企业家也未曾理解华为崛起的核心要素，反而以为“996”，“狼性精神”是华为的关键，争相模仿了起来，当然其中或许有清醒者，却由于市场的不断“内卷”，也不得不行此下策，倒也不显得奇怪
+读完这本数，其实学习到的更多的是战略思想，什么是战略思想，就是基于此刻，掌控未来。并以切实可行的方案，去赢得未来的竞争
+5. 认知突围，做复杂时代的明白人 这本书倒不是去年读完的，是20年末读完的，索性一起放到这里
+书中详实的介绍了人与人之间的认知差异，并辅以案例说明，相对而言，我倒觉得这本书其实适合所有人阅读，提升自我的认知，同时认识世界运转的规律
+6. Java多线程编程核心技术 此书只能说一般般，简单介绍了多线程的使用和一些简单的基本原理，可以用来入门多线程，书中案例错误还挺多的
+7. 重构：改善既有代码的设计(第二版) 书中提到的最重要的一个概念就是“测试驱动开发”，其他的读下来，倒觉得越发熟悉，其中很多的技巧其实大多数是我平常开发过程中常用的重构技巧，读完这本书更多的是系统性的学习了重构的方案，建议初中级开发人员仔细阅读
+8.时间简史 霍金作品，流行的科普向作品，给了我一个探索宇宙运转与微观世界的机会、这本书十分推荐阅读，其中的概念和思想非常值得深入思考
+9. Head First设计模式 买来很久了，一直都是处于一次性读完三个章节就废弃，然后过一年重来的一本书，这次终于读完了，收获倒不是特别多，或许是这一年来读了框架的挺多源码，很多示例都是看一眼概念和代码就知道是怎么样了，不过还是非常推荐所有开发人员阅读这本书</description></item><item><title>快速删除阿里云OSS内文件</title><link>/2022/01/%E5%BF%AB%E9%80%9F%E5%88%A0%E9%99%A4%E9%98%BF%E9%87%8C%E4%BA%91oss%E5%86%85%E6%96%87%E4%BB%B6/</link><pubDate>Tue, 04 Jan 2022 16:10:25 +0000</pubDate><guid>/2022/01/%E5%BF%AB%E9%80%9F%E5%88%A0%E9%99%A4%E9%98%BF%E9%87%8C%E4%BA%91oss%E5%86%85%E6%96%87%E4%BB%B6/</guid><description>最近要把OSS里的文件清空一下，控制台操作属实是又卡又慢，无奈还是得代码操作
 新建一个maven项目 依赖项如下：
 &amp;lt;dependencies&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;com.aliyun.oss&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;aliyun-sdk-oss&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;3.13.1&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;artifactId&amp;gt;hutool-core&amp;lt;/artifactId&amp;gt; &amp;lt;groupId&amp;gt;cn.hutool&amp;lt;/groupId&amp;gt; &amp;lt;version&amp;gt;5.7.17&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;/dependencies&amp;gt; 代码如下
 String endpoint = &amp;#34;&amp;#34;; String accessKeyId = &amp;#34;&amp;#34;; String accessKeySecret = &amp;#34;&amp;#34;; String bucketName = &amp;#34;&amp;#34;; ClientBuilderConfiguration conf = new ClientBuilderConfiguration(); conf.setMaxConnections(2048); conf.setSocketTimeout(10000); conf.setConnectionTimeout(1000); conf.setConnectionRequestTimeout(1000); conf.setIdleConnectionTime(60000); conf.setMaxErrorRetry(1); conf.setProtocol(Protocol.HTTPS); conf.setUserAgent(&amp;#34;cloud-oss-sdk&amp;#34;); conf.setRedirectEnable(true); conf.setVerifySSLEnable(false); conf.setSupportCname(true); OSS ossClient = new OSSClientBuilder().build(endpoint, accessKeyId, accessKeySecret, conf); var objects = ossClient.listObjects(bucketName).getObjectSummaries(); while (CollUtil.isNotEmpty(objects)) { var keys = objects.stream().map(OSSObjectSummary::getKey).toList(); var deleteObjectsRequest = new DeleteObjectsRequest(bucketName); deleteObjectsRequest.</description></item><item><title>Jenkins Docker实现SpringBoot自动化发布</title><link>/2021/12/jenkinsdocker%E5%AE%9E%E7%8E%B0springboot%E8%87%AA%E5%8A%A8%E5%8C%96%E5%8F%91%E5%B8%83/</link><pubDate>Sat, 25 Dec 2021 22:06:13 +0800</pubDate><guid>/2021/12/jenkinsdocker%E5%AE%9E%E7%8E%B0springboot%E8%87%AA%E5%8A%A8%E5%8C%96%E5%8F%91%E5%B8%83/</guid><description>前置条件
